@@ -12,7 +12,7 @@ CarrierWave.configure do |config|
       provider: 'AWS',     #AWSのアクセスキーとシークレットキーを環境変数で定義する
       aws_access_key_id: Rails.application.secrets.aws_access_key_id, #secrets.ymlに鍵の本体があります
       aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,  #secrets.ymlに鍵の本体があります
-      region: #'AWSで設定した地域（おそらく'ap-northeast-1') '
+      region: 'ap-northeast-1'
     }
     config.fog_directory  = 'mercari63b'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari63b'
