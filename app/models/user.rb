@@ -1,3 +1,3 @@
-class Item < ApplicationRecord
+class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 end

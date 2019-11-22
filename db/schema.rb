@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191121075713) do
+ActiveRecord::Schema.define(version: 20191121122610) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                    null: false
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20191121075713) do
     t.string   "send_date",                  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",           null: false
+    t.string   "password",        null: false
+    t.string   "nickname",        null: false
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.string   "first_name_kana", null: false
+    t.string   "last_name_kana",  null: false
+    t.integer  "phone_number",    null: false
+    t.date     "birthday",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
