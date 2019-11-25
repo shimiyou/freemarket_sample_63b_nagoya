@@ -1,1 +1,188 @@
 -# トップページ
+.main-page
+  =link_to "#" do
+    .main-page__send-btn
+      .main-page__send-btn__detail
+        出品
+        %i.fa.fa-camera.fa
+  .main-header
+    .main-header__center
+      .main-header__center__title
+        .main-header__center__title--logo
+          =link_to "#" do
+            =image_tag "fmarket_logo_red.png",class:"logo"
+        %input{placeholder:"何かお探しですか？？",class:"main-header__center__title__search"}
+        %i.fa.fa-search.fa-2x
+      .main-header__center__contents
+        .main-header__center__contents__types
+          =link_to "#",class:"main-header__center__contents__types--category" do
+            %i.fa.fa-list-alt
+            カテゴリから探す
+          =link_to "#",class:"main-header__center__contents__types--bland" do
+            %i.fa.fa-ellipsis-v
+            ブランドから探す
+        .main-header__center__contents__other
+          =link_to "#",class:"main-header__center__contents__other__iine" do
+            %i.fa.fa-heart
+            いいね！一覧
+          =link_to "#",class:"main-header__center__contents__other__news" do
+            %i.fa.fa-bell
+            お知らせ
+          =link_to "#",class:"main-header__center__contents__other__do" do
+            %i.fa.fa-check
+            やることリスト
+          =link_to "#",class:"main-header__center__contents__other__mypage" do
+            =image_tag "7e410cf91919c3cab382d6daa4f55454_t.png",class:"nill-image"
+            %i.fa.fa-grin-squint
+            マイページ
+  .swiper-containers
+    = image_tag "D220-1.jpg",class:"swiper-containers__image"
+  .main-detail
+    .main-detail__category
+      .main-detail__category__title
+        .main-detail__category__title__theme
+          人気のカテゴリー
+        .main-detail__category__title__method
+          =link_to "#",class:"main-detail__category__title__method__name" do
+            上腕二頭筋
+          =link_to "#",class:"main-detail__category__title__method__name" do
+            胸筋
+          =link_to "#",class:"main-detail__category__title__method__name" do
+            僧帽筋
+          =link_to "#",class:"main-detail__category__title__method__name" do
+            背筋
+    .main-detail__category-item
+      .main-detail__category-item__title
+        .main-detail__category-item__title__name
+          新着きんにく
+        =link_to "#",class:"main-detail__category-item__title__see-more" do
+          もっと見る
+      .main-detail__category-item__list
+        %ul.main-detail__category-item__list__contents
+          =render "items/index-item"
+          =render "items/index-item"
+          =render "items/index-item"
+          =render "items/index-item"
+          =render "items/index-item"
+          =render "items/index-item"
+          =render "items/index-item"
+          =render "items/index-item"
+    .main-detail__bland
+      .main-detail__bland__title
+        .main-detail__bland__title__theme
+          人気のブランド
+        .main-detail__bland__title__method
+          =link_to "#",class:"main-detail__bland__title__method__name" do
+            ザバス
+          =link_to "#",class:"main-detail__bland__title__method__name" do
+            エクスプロージョン
+          =link_to "#",class:"main-detail__bland__title__method__name" do
+            be LEGEND
+          =link_to "#",class:"main-detail__bland__title__method__name" do
+            バルクスポーツ
+    .main-detail__bland-item
+      .main-detail__bland-item__title
+        .main-detail__bland-item__title__name
+          新着プロテイン
+        =link_to "#",class:"main-detail__bland-item__title__see-more" do
+          もっと見る
+      .main-detail__bland-item__list
+        %ul.main-detail__bland-item__list__contents
+          =render "items/index-bland"
+          =render "items/index-bland"
+          =render "items/index-bland"
+          =render "items/index-bland"
+          =render "items/index-bland"
+          =render "items/index-bland"
+          =render "items/index-bland"
+          =render "items/index-bland"
+  %asid.advertisement
+    .advertisement-image
+      .contents
+        .contents__detail
+          .contents__detail__text-a
+            スマホでかんたんフリマアプリ
+          .contents__detail__text-b
+            今すぐ無料ダウンロード!!
+          .contents__detail__link
+            =image_tag "logo_red.png",class:"log-red-only"
+            %a{href: "https://apps.apple.com/jp/app/%E7%AD%8B%E8%82%89%E7%B3%BB3d-%E8%A7%A3%E5%89%96%E5%AD%A6/id945544405?mt=8", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2014-12-09&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;",class:"link"}
+            %a{href: "https://play.google.com/store/apps/details?id=com.visual3dscience.muscle&hl=ja&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+              %img{alt: "Get it on Google Play", src: "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png",class:"google-img"}
+        .contents__image
+          =image_tag "D220-1.jpg",class:"contents__image"
+  .main-footer
+    .main-footer__detail
+      .main-footer__detail__fmarket
+        =link_to "#",class:"main-footer__detail__fmarket__title" do
+          Fmarketについて
+        .main-footer__detail__fmarket__texts
+          =link_to "#",class:"main-footer__detail__fmarket__texts__text" do
+            会社概要(運営会社)
+          =link_to "#",class:"main-footer__detail__fmarket__texts__text" do
+            採用情報
+          =link_to "#",class:"main-footer__detail__fmarket__texts__text" do
+            プレスリリース
+          =link_to "#",class:"main-footer__detail__fmarket__texts__text" do
+            公式ブログ
+          =link_to "#",class:"main-footer__detail__fmarket__texts__text" do
+            Fmarketロゴ利用ガイドライン
+        =link_to "#",class:"main-footer__detail__fmarket__icon" do
+          %i.fa.fa-facebook.fa-3x
+        =link_to "#",class:"main-footer__detail__fmarket__icon" do
+          %i.fa.fa-twitter.fa-3x
+      .main-footer__detail__help
+        =link_to "#",class:"main-footer__detail__help__title" do
+          ヘルプ＆ガイド
+        .main-footer__detail__help__texts
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            FMガイド
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            楽々FM便
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            ゆうゆうFM便
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            大型FM便
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            車体取引ガイド
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            FMあんしん・あんぜん宣言！
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            偽ブランド品撲滅への取り組み
+          =link_to "#",class:"main-footer__detail__help__texts__text" do
+            FMボックス
+      .main-footer__detail__privacy-policy
+        =link_to "#",class:"main-footer__detail__privacy-policy__title" do
+          プライバシーと利用規約
+        .main-footer__detail__privacy-policy__text
+          .main-footer__detail__privacy-policy__text__privacies
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__privacies__privacy" do
+              プライバシーポリシー
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__privacies__privacy" do
+              FM利用規約
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__privacies__privacy" do
+              あんしんスマホサポート制度に関する利用規約
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__privacies__privacy" do
+              コンプライアンスポリシー
+          .main-footer__detail__privacy-policy__texts__terms
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__terms__a" do
+              個人データの安全管理に係る基本方針
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__terms__a" do
+              特定商取引に関する表記
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__terms__a" do
+              資金決済法に基づく表示
+            =link_to "#",class:"main-footer__detail__privacy-policy__text__terms__a" do
+              法令順守と犯罪抑止のため
+      .main-footer__detail__country
+        =link_to "#",class:"main-footer__detail__country__titile" do
+          国
+        .main-footer__detail__country__detail
+          =link_to "#",class:"main-footer__detail__country__detail__name" do
+            日本
+          =link_to "#",class:"main-footer__detail__country__detail__name" do
+            United States
+    .main-footer__end
+      =link_to "#",class:"main-footer__end__log" do
+        =image_tag "logo_white.png",class:"main-footer__end__log"
+      .main-footer__end__copy
+        ©️Mmerket
