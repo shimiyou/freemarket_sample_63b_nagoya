@@ -106,9 +106,10 @@
             今すぐ無料ダウンロード!!
           .contents__detail__link
             =image_tag "logo_red.png",class:"log-red-only"
-            %a{href: "https://apps.apple.com/jp/app/%E7%AD%8B%E8%82%89%E7%B3%BB3d-%E8%A7%A3%E5%89%96%E5%AD%A6/id945544405?mt=8", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2014-12-09&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;",class:"link"}
-            %a{href: "https://play.google.com/store/apps/details?id=com.visual3dscience.muscle&hl=ja&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
-              %img{alt: "Get it on Google Play", src: "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png",class:"google-img"}
+            =link_to "#",class:"apple" do
+              =image_tag "image-apple.png",class:"apple"
+            =link_to "#",class:"google" do
+              =image_tag "en_badge_web_generic.png",class:"google"
         .contents__image
           =image_tag "D220-1.jpg",class:"contents__image"
   .main-footer
