@@ -1,0 +1,134 @@
+.container {
+  background-color: rgb(245, 245, 245);
+  height: 100vh;
+
+  .header {
+    height: 128px;
+    text-align: center;
+
+    &__logo {
+      width: 185px;
+      height: 49px;
+      margin-top: 40px;
+    }
+  }
+
+  .user-new__main {
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto 150px;
+
+    &__header {
+      font-size: 22px;
+      font-weight: bold;
+      padding: 32px 16px;
+      text-align: center;
+    }
+
+    &__main {
+      border-top: 1px solid #eee;
+      padding: 16px 24px 40px;
+
+      &__content {
+        margin: 0 auto;
+        width: 343px;
+
+        &__mail-address {
+          background-color: #ea352d;
+          color: #fff;
+          width: 100%;
+          height: 46px;
+          line-height: 46px;
+          border: 1px solid #ea352d;
+          border-radius: 4px;
+          display: block;
+
+          &__icon {
+            margin-left: 18px;
+            display: inline-block;
+          }
+
+          &__text {
+            margin-left: 38px;
+            display: inline-block;
+          }
+        }
+
+        &__facebook {
+          margin-top: 16px;
+          background-color: #385185;
+          color: #fff;
+          width: 100%;
+          height: 46px;
+          line-height: 46px;
+          border: 1px solid #385185;
+          border-radius: 4px;
+          display: block;
+
+          &__icon {
+            font-size: 20px;
+            margin-left: 18px;
+            display: inline-block;
+          }
+
+          &__text {
+            margin-left: 56px;
+            display: inline-block;
+          }
+        }
+
+        &__google {
+          margin-top: 16px;
+          background-color: #fff;
+          color: #333;
+          width: 100%;
+          height: 46px;
+          line-height: 46px;
+          border: 1px solid #979797;
+          border-radius: 4px;
+          display: block;
+
+          &__icon {
+            color: green;
+            margin-left: 18px;
+            display: inline-block;
+          }
+
+          &__text {
+            margin-left: 68px;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding: 40px 0;
+    width: 420px;
+    margin: 0 auto;
+
+    &__contents {
+      display: flex;
+      justify-content: space-around;
+
+      &__content {
+        color: #333;
+        text-decoration: none;
+        font-size: 12px;
+      }
+    }
+
+    &__logo {
+      margin: 40px auto 0;
+      width: 80px;
+      height: 65px;
+      display: block;
+    }
+
+    &__c {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+}

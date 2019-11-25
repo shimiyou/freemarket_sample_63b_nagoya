@@ -1,1 +1,34 @@
 -# 会員情報入力
+.container
+  .header
+    = link_to '#' do
+      = image_tag '/assets/fmarket_logo_red.png', class: 'header__logo'
+  .user-new__main
+    %h2.user-new__main__header
+      新規会員登録
+    .user-new__main__main
+      .user-new__main__main__content
+        = link_to '#', class: 'user-new__main__main__content__mail-address' do
+          = fa_icon 'envelope', class: 'user-new__main__main__content__mail-address__icon'
+          .user-new__main__main__content__mail-address__text
+            メールアドレスで登録する
+        = link_to '#', class: 'user-new__main__main__content__facebook' do
+          = fa_icon 'facebook-square', class: 'user-new__main__main__content__facebook__icon'
+          .user-new__main__main__content__facebook__text
+            Facebookで登録する
+        = link_to '#', class: 'user-new__main__main__content__google' do
+          = fa_icon 'google', class: 'user-new__main__main__content__google__icon'
+          .user-new__main__main__content__google__text
+            Googleで登録する
+  .footer
+    .footer__contents
+      = link_to '#', class: 'footer__contents__content' do
+        プライバシーポリシー
+      = link_to '#', class: 'footer__contents__content' do
+        メルカリ利用規約
+      = link_to '#', class: 'footer__contents__content' do
+        特定商取引に関する表記
+    = link_to '#' do
+      = image_tag '/assets/logo_gray.png', class: 'footer__logo'
+    .footer__c
+      ©︎ 2019 Mercari
