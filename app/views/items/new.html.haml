@@ -2,7 +2,7 @@
 .container
   
   .header
-    = link_to '#' do
+    = link_to root_path do
       = image_tag '/assets/fmarket_logo_red.png', class: 'header__logo'
 
   .sell-main
@@ -144,7 +144,7 @@
       %button.red-btn
         出品する
 
-      = link_to '#', class: 'sell-return-btn' do
+      = link_to root_path, class: 'sell-return-btn' do
         もどる
 
   .footer

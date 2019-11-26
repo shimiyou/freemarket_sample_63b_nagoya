@@ -110,6 +110,7 @@
             }
           }
 
+
           &__news{
             text-decoration: none;
             padding-left: 15px;
@@ -139,6 +140,16 @@
               border-radius: 100px;
             }
           }
+        }
+        &__new{
+          height: 20px;
+          width: 80px;
+          border: solid 1px red;
+          background-color: red;
+          color: white;
+          line-height: 20px;
+          text-align: center;
+          border-radius: 8px;
         }
       }
     }

@@ -1,0 +1,32 @@
+.main-header
+  .main-header__center
+    .main-header__center__title
+      .main-header__center__title--logo
+        =link_to root_path do
+          =image_tag "fmarket_logo_red.png",class:"logo"
+      %input{placeholder:"何かお探しですか？？",class:"main-header__center__title__search"}
+      %i.fa.fa-search.fa-2x
+    .main-header__center__contents
+      .main-header__center__contents__types
+        =link_to "#",class:"main-header__center__contents__types--category" do
+          %i.fa.fa-list-alt
+          カテゴリから探す
+        =link_to "#",class:"main-header__center__contents__types--bland" do
+          %i.fa.fa-ellipsis-v
+          ブランドから探す
+      .main-header__center__contents__other
+        =link_to "#",class:"main-header__center__contents__other__iine" do
+          %i.fa.fa-heart
+          いいね！一覧
+        =link_to "#",class:"main-header__center__contents__other__news" do
+          %i.fa.fa-bell
+          お知らせ
+        =link_to "#",class:"main-header__center__contents__other__do" do
+          %i.fa.fa-check
+          やることリスト
+        =link_to "#",class:"main-header__center__contents__other__mypage" do
+          =image_tag "7e410cf91919c3cab382d6daa4f55454_t.png",class:"nill-image"
+          %i.fa.fa-grin-squint
+          マイページ
+      =link_to new_user_path,class:"main-header__center__contents__new" do
+        新規登録
