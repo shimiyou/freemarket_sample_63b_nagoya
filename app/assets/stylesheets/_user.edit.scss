@@ -1,0 +1,128 @@
+.html, body {
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+  a {
+    text-decoration: none;
+  }
+}
+  //上部
+  .mypage-header {
+    height: 48px;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+
+    a{color: #333;
+    }
+    
+    &__list {
+      height: 16px;
+      width: 1020px;
+      margin: 0 auto;
+      padding: 16px 0;
+      display: flex;
+      font-size: 14px;
+      &__itemscope {
+        color: #333;
+      }
+    }
+  }
+
+  //メイン
+  .mypage-main {
+    width: 1020px;
+    height: 1189px;
+    margin: 40px auto 0;
+    //右側
+    &__profile {
+      float: right;
+      width: 700px;
+      height: 568px;
+      background: #fff;
+      &__head {
+        width: 652px;
+        height: 33px;
+        padding: 8px 24px;
+        font-size: 24px;
+        font-weight: bold;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+      }
+      &__name {
+        width: 668px;
+        height: 60px;
+        padding: 72px 16px 24px;
+        display: flex;
+        background-image: url("/assets/mypage.jpg");
+        &__icon {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin-left: auto;
+          border-radius: 50%;
+          background-image: url("/assets/mypage.icon.jpg");
+          }
+        &__nickname {
+          width: 186px;
+          height: 28px;
+          margin-top: 5px;
+          margin-left: 8px;
+          padding: 10px 16px 8px;
+          margin-right: auto;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: none;
+        }
+      }
+      &__input {
+        width: 668px;
+        height: 282px;
+        padding: 40px 16px;
+        &__text {
+          width: 646px;
+          height: 194px;
+          border: 1px solid #ccc;
+          padding: 10px;
+          resize: vertical;
+        }
+        &__btn {
+          width: 668px;
+          height: 50px;
+          margin-top: 10px;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: center;
+          cursor: pointer;
+          color: #fff;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+        }
+      }
+    }
+
+    //左側
+    &__left {
+      width: 280px;
+      float: left;
+      margin: 0 40px 40px 0;
+      color: #333;
+      &__nav {
+        &__list {
+          background: #fff;
+          &__item {
+            height: 15px;
+            padding: 16px;
+            font-size: 14px;
+            border-block-end: 1.45px solid #f5f5f5;
+          }
+        }
+        &__head {
+        width: 258px;
+        margin: 40px 11px 0 11px;
+        font-size: 16px;
+        }
+      }
+    }
+  }

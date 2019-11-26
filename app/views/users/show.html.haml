@@ -1,1 +1,191 @@
--# マイページ
+//本人確認 view
+//上部
+= render 'items/header'
+.mypage-header
+  %ul.mypage-header__list
+    = link_to "#" do
+      %li.mypage-header__itemscope
+        メルカリ
+    %li.mypage-header__icon-arrow-right
+      >
+    = link_to "#" do
+      %li.mypage-header__itemscope
+        マイページ
+    %li.mypage-header__icon-arrow-right
+      >
+    %li.mypage-header__itemscope
+      本人情報の登録
+
+//右側ユーザー名
+.mypage-main
+  .container
+    .content
+      .user-info
+        %h2.user-info__header
+          本人情報の登録
+
+        .user-info__main
+          %p.user-info__main__text
+            お客さまの本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            = link_to '#', class: 'info-link' do
+              本人確認書類のアップロードについて
+              = fa_icon 'chevron-right'
+
+          %h4.form-title
+            お名前
+          %p.user-info-p
+            金子 賢
+
+          %h4.form-title
+            お名前カナ
+          %p.user-info-p
+            カネコ ケン
+
+          %h4.form-title
+            生年月日
+          %p.user-info-p
+            1976/10/19
+
+          %h4.form-title
+            郵便番号
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例）1234567", class: 'form-size form-style'}
+
+          %h4.form-title
+            都道府県
+            %span.form-arbitrary
+              任意
+          %select{class: 'form-select form-style'}
+            %option --
+
+          %h4.form-title
+            市区町村
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例)横浜市緑区", class: 'form-size form-style'}
+
+          %h4.form-title
+            番地
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例)青山1-1-1", class: 'form-size form-style'}
+
+          %h4.form-title
+            建物名
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例)柳ビル103", class: 'form-size form-style'}
+
+          %button.red-btn
+            登録する
+
+          = link_to '#', class: 'user-info__main__link info-link' do
+            本人情報の登録について
+            = fa_icon 'chevron-right'
+
+  //左側のリスト
+  .mypage-main__left
+    %nav.mypage-main__left__nav
+      %ul.mypage-main__left__nav__list
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            マイページ
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            お知らせ
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            やることリスト
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            いいね！一覧
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            出品する
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            出品した商品-出品中
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            出品した商品-取引中
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            出品した商品-売却済み
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            購入した商品-取引中
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            購入した商品-過去の取引
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            ニュース一覧
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            評価一覧
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            ガイド
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            お問い合わせ
+            .mypage-main__left__nav__list__item__icon
+      .mypage-main__left__nav__head
+        メルペイ
+      %ul.mypage-main__left__nav__list
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            残高・振込申請
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            ポイント
+            .mypage-main__left__nav__list__item__icon
+      .mypage-main__left__nav__head
+        設定
+      %ul.mypage-main__left__nav__list
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            プロフィール
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            発送元・お届け先住所変更
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            支払い変更
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            メール/パスワード
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            本人情報
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            電話番号の確認
+            .mypage-main__left__nav__list__item__icon
+        = link_to "#" do
+          %li.mypage-main__left__nav__list__item
+            ログアウト
+            .mypage-main__left__nav__list__item__icon
+= render 'items/footer'
