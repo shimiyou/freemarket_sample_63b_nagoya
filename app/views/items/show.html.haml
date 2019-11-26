@@ -1,1 +1,175 @@
+-# ヘッダー
+= render "items/header"
 -# 商品詳細画面
+.item
+  .item__page  
+    .item__page__title
+      .item__page__title__name
+        ダンベル
+    .item__page__data
+      .item__page__data__photo-box
+        .item__page__data__photo-box__photo
+          = image_tag "man.png", class: "item__page__data__photo-box__photo__main"
+        .item__page__data__photo-box__photos
+          = image_tag "man.png", class: "item__page__data__photo-box__photos__first"
+          = image_tag "sports.png",class: "item__page__data__photo-box__photos__second"
+
+      %table.item__page__data__list
+        %tr
+          %th 出品者
+          %td
+            = link_to "なかやまきんにくん","#"
+            .item__page__data__list__box
+              .item__page__data__list__box__good
+                = fa_icon "thumbs-up"
+                29
+              .item__page__data__list__box__normal
+                = fa_icon "thumbs-up"
+                29
+              .item__page__data__list__box__bad
+                = fa_icon "thumbs-up"
+                29
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "メンズ", "#"
+            = link_to "小物", "#" 
+            = link_to "ダンベル", "#"
+        %tr
+          %th ブランド
+          %td
+            = link_to "サバス", "#" 
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "東京都", "#" 
+        %tr
+          %th 発送日の目安
+          %td 1~2日で発送
+
+    .item__page__price
+      .item__page__price__number
+        ¥100,000
+      .item__page__price__tax
+        (税込)
+      .item__page__price__postage
+        送料込み
+    = link_to "購入画面に進む", "#", class: "item__page__buy"
+    .item__page__text
+      商品を見て頂きありがとうございます！
+    .item__page__button
+      .item__page__button__left
+        %button.item__page__button__left__like{type: "button"}
+          .item__page__button__left__like__heart
+            = fa_icon "heart" 
+            .item__page__button__left__like__good
+              いいね! 29
+        %button.item__page__button__left__report{type: "button"}
+          .item__page__button__left__report__flag
+            = fa_icon "flag"
+            不適切な商品の報告
+        = link_to "#", class: "item__page__button__right" do
+          = fa_icon "lock"
+          あんしん・あんぜんへの取り組み
+      
+  %form.item__comment 
+    .item__comment__attention
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %textarea{type: "text",class: "item__comment__textarea"}
+    %button{type: "submit" , class: "item__comment__button"}
+      コメントする
+  .item__next
+    = link_to "プロテイン", "#", class: "item__next__left"
+    = link_to "加圧シャツ", "#", class: "item__next__right"
+  .item__media
+    = link_to "https://www.facebook.com/", class: "item__media__facebook" do
+      = fa_icon "facebook-square"
+    = link_to "https://twitter.com/", class: "item__media__twitter" do
+      = fa_icon "twitter-square"
+    = link_to "https://www.pinterest.jp/", class: "item__media__pinterest" do
+      = fa_icon "pinterest-square"
+
+  .item__user
+    = link_to "なかやまきんにくんさんのその他の商品", "#", style: "font-size:15pt;font-weight:bold;", class: "item__user__items"
+    .item__contents
+      .item__contents__content.clearfix
+        .item__contents__content__image
+          = image_tag "workout", class: "item__contents__content__image__photo"
+        .item__contents__content__details
+          
+          .item__contents__content__details__name
+            とてもいい商品です
+        .item__contents__content__price
+          ¥15,000
+          = fa_icon "heart", class: "item__contents__content__price__good"
+
+      .item__contents__content.clearfix
+        .item__contents__content__image
+          = image_tag "bodybuilder", class: "item__contents__content__image__photo"
+        .item__contents__content__details
+          
+          .item__contents__content__details__name
+            とてもいい商品です
+        .item__contents__content__price
+          ¥15,000
+          = fa_icon "heart", class: "item__contents__content__price__good"
+      .item__contents__content.clearfix
+        .item__contents__content__image
+          = image_tag "dumbbell", class: "item__contents__content__image__photo"
+        .item__contents__content__details
+          
+          .item__contents__content__details__name
+            とてもいい商品です
+        .item__contents__content__price
+          ¥15,000
+          = fa_icon "heart", class: "item__contents__content__price__good"
+  .item__user
+    = link_to "ダンベル (メンズ) その他の商品", "#", style: "font-size:15pt;font-weight:bold;", class: "item__user__items"
+    .item__contents
+      .item__contents__content.clearfix
+        .item__contents__content__image
+          = image_tag "workout", class: "item__contents__content__image__photo"
+        .item__contents__content__details
+          
+          .item__contents__content__details__name
+            とてもいい商品です
+        .item__contents__content__price
+          ¥15,000
+          = fa_icon "heart", class: "item__contents__content__price__good"
+
+      .item__contents__content.clearfix
+        .item__contents__content__image
+          = image_tag "bodybuilder", class: "item__contents__content__image__photo"
+        .item__contents__content__details
+          
+          .item__contents__content__details__name
+            とてもいい商品です
+        .item__contents__content__price
+          ¥15,000
+          = fa_icon "heart", class: "item__contents__content__price__good"
+      .item__contents__content.clearfix
+        .item__contents__content__image
+          = image_tag "dumbbell", class: "item__contents__content__image__photo"
+        .item__contents__content__details
+          
+          .item__contents__content__details__name
+            とてもいい商品です
+        .item__contents__content__price
+          ¥15,000
+          = fa_icon "heart", class: "item__contents__content__price__good"
+  .item__bottom
+    = link_to "メルカリ", "#", class: "item__bottom__home"
+    .item__bottom__item
+      ＞ダンベル
+
+-# フッター
+= render "items/footer"
