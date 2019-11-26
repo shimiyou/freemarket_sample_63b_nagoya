@@ -1,0 +1,155 @@
+.html, body {
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+  a {
+    text-decoration: none;
+  }
+}
+  //上部
+  .mypage-header {
+    height: 48px;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    
+    a{color: #333;
+    }
+    
+    &__list {
+      height: 16px;
+      width: 1020px;
+      margin: 0 auto;
+      padding: 16px 0;
+      display: flex;
+      font-size: 14px;
+      &__itemscope {
+        color: #333;
+      }
+    }
+  }
+
+  //メイン
+  .mypage-main {
+    width: 1020px;
+    height: 1189px;
+    margin: 40px auto 0;
+    
+    //左側
+    &__left {
+      width: 280px;
+      float: left;
+      margin: 0 40px 40px 0;
+      
+      a{color: #333;
+      }
+
+      &__nav {
+        &__list {
+          background: #fff;
+          &__item {
+            height: 15px;
+            padding: 16px;
+            font-size: 14px;
+            border-block-end: 1.45px solid #f5f5f5;
+          }
+        }
+        &__head {
+        width: 258px;
+        margin: 40px 11px 0 11px;
+        font-size: 16px;
+        }
+      }
+    }
+  }
+
+//右側
+  .content {
+    width: 700px;
+    height: 1076px;
+    float: right;
+    
+    .user-info {
+      background-color: #fff;
+      width: 700px;
+      margin:  auto;
+  
+      &__header {
+        height: 34px;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 8px 24px;
+        text-align: center;
+        border-bottom: 1px solid #f5f5f5;
+      }
+  
+      &__main {
+        padding: 64px;
+  
+        &__text {
+          font-size: 14px;
+          margin-bottom: 60px;
+        }
+  
+        &__link {
+          padding-top: 40px;
+        }
+      }
+    }
+  }
+  
+  .user-info-p {
+    font-size: 14px;
+    margin: 8px 0 40px;
+  }
+  
+  .form-size {
+    width: 537px;
+    margin: 8px 0 40px;
+    padding: 10px 16px 8px;
+  }
+  
+  .info-link {
+    display: block;
+    text-align: right;
+    color: #0099e8;
+  }
+
+  .form-arbitrary {
+    background-color: #ccc;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px;
+    margin-left: 8px;
+    border-radius: 2px;
+    vertical-align: center;
+  }
+  
+  .form-style {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-select {
+    background-color: #fff;
+    width: 100%;
+    height: 48px;
+    margin: 8px 0 40px;
+    cursor: pointer;
+  }
+  
+  .form-title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .red-btn {
+    background-color: #ea352d;
+    color: #fff;
+    width: 100%;
+    height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+  }
