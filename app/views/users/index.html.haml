@@ -1,29 +1,4 @@
-.user-header
-  .user-header__logo
-    =link_to "#" do
-      =image_tag "fmarket_logo_red.png", class: "user-header__logo__image"
-  %nav.progress
-    %ul.progress-bar
-      %li.through#through
-        会員情報
-        .progress-status
-        .progress-status_bar
-      %li.active#active
-        電話番号認証
-        .progress-status
-        .progress-status_bar
-      %li.address#address
-        お届け先住所入力
-        .progress-status
-        .progress-status_bar
-      %li.payment#payment
-        支払い方法
-        .progress-status
-        .progress-status_bar
-      %li.end#end
-        完了
-        .progress-status
-        .progress-status_bar    
+=render "users/new-header"
 .main
   .rightbar
     .rightbar__header
@@ -101,14 +76,4 @@
             カード裏面の番号とは?        
         .rightbar__main__contents__send
           =link_to '追加する','#',class:'send'
-
-.user-footer
-  .user-footer__contents
-    =link_to "プライバシーポリシー","#", class: "user-footer__contents__privacy-policy"  
-    =link_to "メルカリ利用規約","#", class: "user-footer__contents__terms"
-    =link_to "特定商取引に関する表記","#", class: "user-footer__contents__transaction" 
-  .user-footer__logo
-    =link_to "#" do
-      =image_tag "logo_gray.png", class: "user-footer__logo__image"
-  .user-footer__copywriter
-    ©️ 2019 Mercari
+=render "users/new-footer"
