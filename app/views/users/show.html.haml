@@ -1,6 +1,5 @@
-//本人確認 view
 //上部
-= render 'items/header'
+=render "items/header"
 .mypage-header
   %ul.mypage-header__list
     = link_to "#" do
@@ -8,84 +7,53 @@
         メルカリ
     %li.mypage-header__icon-arrow-right
       >
-    = link_to "#" do
-      %li.mypage-header__itemscope
-        マイページ
-    %li.mypage-header__icon-arrow-right
-      >
     %li.mypage-header__itemscope
-      本人情報の登録
+      マイページ
 
 //右側ユーザー名
 .mypage-main
-  .container
-    .content
-      .user-info
-        %h2.user-info__header
-          本人情報の登録
+  .mypage-main__right
+    .mypage-main__right__user
+      = link_to "#" do
+        .mypage-main__right__user__main
+          .mypage-main__right__user__main__icon
+            .mypage-main__right__user__main__icon__image
+          .mypage-main__right__user__main__name
+            おさるさん
+          .mypage-main__right__user__main__count
+            評価 0   出品数 0
+            .mypage-main__right__user__main__count__action
+              
+            .mypage-main__right__user__main__count__item
 
-        .user-info__main
-          %p.user-info__main__text
-            お客さまの本人情報をご登録ください。
-            %br
-            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-            = link_to '#', class: 'info-link' do
-              本人確認書類のアップロードについて
-              = fa_icon 'chevron-right'
+    //お知らせ、やることリスト
+    .mypage-main__right__todo
+      .mypage-main__right__todo__tab
+        = link_to "#" do
+          .mypage-main__right__todo__tab__news1
+            お知らせ
+        = link_to "#" do
+          .mypage-main__right__todo__tab__news2
+            やることリスト
+      .mypage-main__right__todo__content
+        = image_tag "mypage1.png", class:"mypage-main__right__todo__active"
+        .mypage-main__right__todo__found
 
-          %h4.form-title
-            お名前
-          %p.user-info-p
-            金子 賢
-
-          %h4.form-title
-            お名前カナ
-          %p.user-info-p
-            カネコ ケン
-
-          %h4.form-title
-            生年月日
-          %p.user-info-p
-            1976/10/19
-
-          %h4.form-title
-            郵便番号
-            %span.form-arbitrary
-              任意
-          %input{placeholder: "例）1234567", class: 'form-size form-style'}
-
-          %h4.form-title
-            都道府県
-            %span.form-arbitrary
-              任意
-          %select{class: 'form-select form-style'}
-            %option --
-
-          %h4.form-title
-            市区町村
-            %span.form-arbitrary
-              任意
-          %input{placeholder: "例)横浜市緑区", class: 'form-size form-style'}
-
-          %h4.form-title
-            番地
-            %span.form-arbitrary
-              任意
-          %input{placeholder: "例)青山1-1-1", class: 'form-size form-style'}
-
-          %h4.form-title
-            建物名
-            %span.form-arbitrary
-              任意
-          %input{placeholder: "例)柳ビル103", class: 'form-size form-style'}
-
-          %button.red-btn
-            登録する
-
-          = link_to '#', class: 'user-info__main__link info-link' do
-            本人情報の登録について
-            = fa_icon 'chevron-right'
-
+    //購入した商品
+    .mypage-main__right__buy
+      .mypage-main__right__buy__head
+        購入した商品
+      .mypage-main__right__todo__tab
+        = link_to "#" do
+          .mypage-main__right__todo__tab__news1
+            取引中
+        = link_to "#" do
+          .mypage-main__right__todo__tab__news2
+            過去の取引
+      .mypage-main__right__todo__content
+        = image_tag "mypage2.png", class:"mypage-main__right__todo__active"
+        .mypage-main__right__todo__found
+        
   //左側のリスト
   .mypage-main__left
     %nav.mypage-main__left__nav
@@ -188,4 +156,4 @@
           %li.mypage-main__left__nav__list__item
             ログアウト
             .mypage-main__left__nav__list__item__icon
-= render 'items/footer'
+=render "items/footer"
