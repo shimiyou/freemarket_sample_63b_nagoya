@@ -1,1 +1,51 @@
--# 商品の詳細
+-# 商品購入確認画面(仮)
+.container
+  =render "users/new-header"
+  .buy
+    .buy__title
+      購入内容の確認
+    .buy__item
+      .buy__item__content
+        .buy__item__content__image
+        = image_tag "man.png", class: "buy__item__content__image__photo"
+        .buy__item__content__name
+          ダンベル
+      .buy__item__price
+        .buy__item__price__number
+          ¥100,000
+        .buy__item__price__postage
+          送料込み
+      .buy__item__point
+        ポイントはありません
+      .buy__item__total
+        .buy__item__total__pay
+          支払い金額
+        .buy__item__total__price
+          ¥100,000
+      .buy__item__red
+        = link_to "購入する","#"
+    .buy__delivery
+      .buy__delivery__text
+        配送先
+      .buy__delivery__user
+        .buy__delivery__user__postal-code
+          〒100-XXXX
+        .buy__delivery__user__address
+          東京都港区XXXXXXXXXXXXXX
+        .buy__delivery__user__name
+          なかやまきんにくん
+        .buy__delivery__user__edit
+          = link_to "変更する","#"
+    .buy__credit
+      .buy__credit__text
+        支払い方法
+      .buy__credit__user
+        .buy__credit__user__number
+          ************1111
+        .buy__credit__user__time-limit
+          08/20
+        .buy__credit__user__card
+          = image_tag "_JCB-512.png",class: "buy__credit__user__card"
+        .buy__credit__user__edit
+          = link_to "変更する","#"
+  =render "users/new-footer"
