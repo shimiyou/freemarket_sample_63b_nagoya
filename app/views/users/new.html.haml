@@ -20,15 +20,5 @@
           = fa_icon 'google', class: 'user-new__main__main__content__google__icon'
           .user-new__main__main__content__google__text
             Googleで登録する
-  .footer
-    .footer__contents
-      = link_to '#', class: 'footer__contents__content' do
-        プライバシーポリシー
-      = link_to '#', class: 'footer__contents__content' do
-        メルカリ利用規約
-      = link_to '#', class: 'footer__contents__content' do
-        特定商取引に関する表記
-    = link_to '#' do
-      = image_tag 'logo_gray.png', class: 'footer__logo'
-    .footer__c
-      ©︎ 2019 Mercari
+  =render "users/new-footer"
+  
