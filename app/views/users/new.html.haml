@@ -1,8 +1,6 @@
 -# 会員情報入力
 .container
-  .header
-    = link_to root_path do
-      = image_tag 'fmarket_logo_red.png', class: 'header__logo'
+  =render "users/new-header"
   .user-new__main
     %h2.user-new__main__header
       新規会員登録
