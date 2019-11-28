@@ -1,0 +1,24 @@
+//ユーザー会員登録完了画面
+.user-header
+  =render "new-header-progress"
+  .user-header-fin
+    =render "new-header-progress-1"
+.end
+  .end__title
+    会員登録完了
+  .end__text
+    .end__text__thanks
+      ありがとうございます。
+    .end__text__ending
+      会員登録が完了しました。
+    .end__text__go
+      = link_to "メルカリをはじめる",root_path, class: "end__text__go__home"
+  .end__image
+    .end__image__simple
+      スマホでかんたんフリマアプリ
+    .end__image__downlord
+      今すぐ無料ダウンロード！
+    = image_tag "logo_red.png", class: "end__image__logo"
+    = image_tag "image-apple.png", class: "end__image__app-store"
+    = image_tag "google-play-badge.png", class: "end__image__google-play"
+=render "new-footer"
