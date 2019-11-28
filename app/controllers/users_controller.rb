@@ -13,4 +13,19 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def detail
+  end
+
+  def phone_number
+  end
+
+  def address
+  end
+
+  def pay
+  end
+
+  def fin
+  end
+
 end

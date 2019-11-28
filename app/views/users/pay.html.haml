@@ -1,4 +1,7 @@
-=render "users/new-header-progress"
+.user-header
+  =render "new-header-progress"
+  .user-header-pay
+    =render "new-header-progress-1"
 .main
   .rightbar
     .rightbar__header
@@ -75,5 +78,5 @@
           .rightbar__main__contents__coad__text__link
             カード裏面の番号とは?        
         .rightbar__main__contents__send
-          =link_to '追加する','#',class:'send'
-=render "users/new-footer"
+          =link_to '追加する',fin_users_path,class:'send'
+=render "new-footer"
