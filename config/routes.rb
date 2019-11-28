@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "address"
       get "pay"
       get "fin"
+      get "logout"
     end 
   end
 end
