@@ -6,7 +6,7 @@
       新規会員登録
     .user-new__main__main
       .user-new__main__main__content
-        = link_to '#', class: 'user-new__main__main__content__mail-address' do
+        = link_to detail_users_path, class: 'user-new__main__main__content__mail-address' do
           = fa_icon 'envelope', class: 'user-new__main__main__content__mail-address__icon'
           .user-new__main__main__content__mail-address__text
             メールアドレスで登録する
