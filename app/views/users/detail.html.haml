@@ -44,7 +44,8 @@
           %P「次へ進む」のボタンを押すことにより、
           %a{href: "＃"} 利用規約
           %p に同意したものとみなします
-          %button.next{type: "submit"} 次へ進む
+          =link_to phone_number_users_path do
+            %button.next{type: "submit"} 次へ進む
         .bottom__right
           %a{href: "＃"} 本人情報の登録について
 =render "new-footer"
