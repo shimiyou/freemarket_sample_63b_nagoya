@@ -14,7 +14,7 @@
     }
   }
 }
-.user-header-detail{
+.user-header-address{
   .progress {
     padding: 40px 0 0 44px;
     border: 0;
@@ -65,45 +65,56 @@
   width: 100px;
   }
   #through{
-    color: #ea352d;
   .progress-status{
     background: #ea352d;
   }
   }
+
+  #through .progress-status_bar{
+    background: #ea352d;
+  }
+  #active{
+    .progress-status{
+      background: #ea352d;
+    }
+    .progress-status_bar{
+      background: #ea352d;
+    }
+  }
+
+  #address{
+    color: #ea352d;
+    .progress-status{
+      background: #ea352d;
+    } 
+  }
 }
 
-.main{
-  background-color:#eeeeee;
-  &__inform{
-    width:700px;
-    margin: 0 auto;
-    padding-bottom: 60px;
-    background-color: white;
-    &__register{
-      font-size:22px;
-      padding:32px;
+.single{
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  &__container{
+    h2{
+      font-size: 22px;
+      padding: 32px;
       text-align: center;
-      line-height: 2.0;
-      h2{
-        font-weight: bold;
-      }
+      line-height: 1.4;
+      font-weight: bold;
     }
-    .content{
-      width:343px;
-      margin:0 auto;
+  }
+  &__content{
+     width:343px;
+     margin:0 auto;
+     padding-bottom: 60px;
+    &__groupform{
+    margin-top:24px;
+    }
       label{
         font-weight:600;
         border-radius: 3px 3px 3px 3px;
         padding-left:5px;
       }
-      .input-default{
-        width:100%;
-        margin:8px 0 0;
-        height:48px;
-        border-radius: 7px 7px 7px 7px;
-        padding-left:5px;
-      }
-    
       .form-require{
         background-color: red;
         color:white;  
@@ -112,75 +123,31 @@
         border-radius: 7px 7px 7px 7px;
         padding-left:5px;
       }
-    
-      .input-default-devide{
-        width:45%;
-        margin:8px 0 0;
+      .input-default{
+        width:100%;
+        margin-top:8px;
         height:48px;
         border-radius: 7px 7px 7px 7px;
         padding-left:5px;
       }
-      &__mail{
+      .next{
         margin-top:24px;
+        display:block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        background: red;
+        color:white;
       }
-      &__password{
-        margin-top: 24px;
+      .norequire{
+        background-color: gray;
+         color:white;  
+         font-size:12px;
+         padding:2px 4px;  
+         border-radius: 7px 7px 7px 7px;
+         padding-left:5px;
       }
-      &__name{
-        &__content{
-          display: flex;
-        }
-      }
-      &__confirm{
-        margin-top:24px;
-        h3{
-          font-size:16px;
-        }
-      }
-      &__name{
-        margin-top:24px;
-      }
-      &__kana{
-        margin-top:24px;
-        &__content{
-          display: flex;
-        }
-      }
-      &__birthday{
-        margin-top:24px;
-        p{
-          color:#888
-        }
-      }
-      .bottom{
-        margin-top:24px;
-        &__text{
-          text-align: center;
-          a{
-            color:#0099e8;
-            text-decoration: none;
-          }
-        }
-        .next{
-          margin-top:24px;
-          display:block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          cursor: pointer;
-          text-align: center;
-          background: red;
-          color:white;
-        }
-        &__right{
-          margin-top:24px;
-          text-align: right;
-          a{
-            color:#0099e8;
-            text-decoration: none;            
-          }
-        }
-      }
-    } 
-  } 
+  }    
 }

@@ -12,7 +12,8 @@
         %label{for: "phone_number"} 携帯電話の番号
         %input.entry{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "tel", value: ""}
         %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-        %button.tap{type: "submit"} SMSを送信する
+        =link_to address_users_path do
+          %button.tap{type: "submit"} SMSを送信する
         %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
       .single__middle__content__text
         %a{href: "#", target: "_blank"}
