@@ -32,13 +32,13 @@
             商品名
             %span.form-require
               必須
-          %input{placeholder: "商品名（必須40文字まで）", class: 'sell-form__item__name__input form-style'}
+          = f.text_field :name, placeholder: "商品名（必須40文字まで）", class: 'sell-form__item__name__input form-style'
         .sell-form__item__description
           %h4.form-title
             商品の説明
             %span.form-require
               必須
-          %textarea{placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。", class: 'sell-form__item__description__input'}
+          = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。", class: 'sell-form__item__description__input'
 
       /詳細
       .sell-main__form__container
@@ -56,14 +56,16 @@
             .sell-form__item__detail__content__size
               %h4.form-title
                 サイズ
-                %span.form-arbitrary
+                %span.form-require
                   必須
               = f.collection_select :size, Size.all, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
-            .sell-form__item__detail__content__brand
-              %h4.form-title
-                ブランド
-                %span.form-require
-                  任意
+            = f.fields_for :brand do |b|
+              .sell-form__item__detail__content__brand
+                %h4.form-title
+                  ブランド
+                  %span.form-arbitrary
+                    任意
+                = b.text_field :name, placeholder: "例）シャネル", class: 'sell-form__item__detail__content__brand__input form-style'
             .sell-form__item__detail__content__states
               %h4.form-title
                 商品の状態
@@ -122,7 +124,7 @@
                 %span.yen-mark
                   ¥
                 %span
-                  %input{placeholder: "例）300", class: 'sell-form__price--right__price__input form-style'}
+                  = f.text_field :price, placeholder: "例）300", class: 'sell-form__price--right__price__input form-style'
             .sell-form__price--right__fee
               %p.sell-form__price--right__fee--left
                 販売手数料(10%)
@@ -155,8 +157,7 @@
           に同意したことになります。
 
         /出品
-        %button.red-btn
-          出品する
+        /= f.submit "出品する", items_path, method: 'post', class: 'red-btn'
 
         = link_to root_path, class: 'sell-return-btn' do
           もどる
