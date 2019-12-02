@@ -9,21 +9,22 @@
     %h2.sell-main__header
       商品の情報を入力
     
-    = form_for @item do |f|
+    = form_for @item, url: items_path, method: :post do |f|
       /画像
       .sell-main__form__container
-        %h3.sell-form__upload__title
-          出品画像
-          %span.form-require
-            必須
-        %p.sell-form__upload__text
-          最大10枚までアップロードできます
-        %label{class: 'sell-form__upload__box'}
-          %p.sell-form__upload__box__text
-            ドラッグアンドドロップ
-            %br
-              またはクリックしてファイルをダウンロード
-          %input{type: 'file', class: 'sell-form__upload__box__file'}
+        = f.fields_for :item_images do |i|
+          %h3.sell-form__upload__title
+            出品画像
+            %span.form-require
+              必須
+          %p.sell-form__upload__text
+            最大10枚までアップロードできます
+          = i.label :image_url, class: 'sell-form__upload__box' do
+            %p.sell-form__upload__box__text
+              ドラッグアンドドロップ
+              %br
+                またはクリックしてファイルをダウンロード
+            = i.file_field :image_url, multipart: true, class: 'sell-form__upload__box__file'
 
       /商品
       .sell-main__form__container
@@ -51,27 +52,25 @@
                 カテゴリー
                 %span.form-require
                   必須
-              %select{class: 'form-select form-style'}
-                %option ---
+              = f.collection_select :category_id, @parents, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
             .sell-form__item__detail__content__size
               %h4.form-title
                 サイズ
                 %span.form-require
                   必須
-              = f.collection_select :size, Size.all, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
-            = f.fields_for :brand do |b|
-              .sell-form__item__detail__content__brand
-                %h4.form-title
-                  ブランド
-                  %span.form-arbitrary
-                    任意
-                = b.text_field :name, placeholder: "例）シャネル", class: 'sell-form__item__detail__content__brand__input form-style'
+              = f.collection_select :size_id, @size, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
+            .sell-form__item__detail__content__brand
+              %h4.form-title
+                ブランド
+                %span.form-arbitrary
+                  任意
+              = f.text_field :name, placeholder: "例）シャネル", class: 'sell-form__item__detail__content__brand__input form-style'
             .sell-form__item__detail__content__states
               %h4.form-title
                 商品の状態
                 %span.form-require
                   必須
-              = f.collection_select :state, State.all, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :state_id, @state, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
 
       /配送
       .sell-main__form__container
@@ -87,25 +86,25 @@
                 配送料の負担
                 %span.form-require
                   必須
-              = f.collection_select :postage_side, PostageSide.all, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :postage_side_id, @postage_side, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
             .sell-form__delivery--right__method
               %h4.form-title
                 配送の方法
                 %span.form-require
                   必須
-              = f.collection_select :send_method, SendMethod.all, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :send_method_id, @send_method, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
             .sell-form__delivery--right__prefecture
               %h4.form-title
                 発送元の地域
                 %span.form-require
                   必須
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :prefecture_id, @prefecture, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
             .sell-form__delivery--right__days
               %h4.form-title
                 発送までの日数
                 %span.form-require
                   必須
-              = f.collection_select :send_date, SendDate.all, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :send_date_id, @send_date, :id, :text, {prompt: '---'}, {class: 'form-select form-style'}
 
       /価格
       .sell-main__form__container
@@ -157,7 +156,8 @@
           に同意したことになります。
 
         /出品
-        = f.submit "出品する", items_path, method: 'post', class: 'red-btn'
+        = f.submit "出品する", class: 'red-btn'
+
         = link_to root_path, class: 'sell-return-btn' do
           もどる
 
