@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20191202093047) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -23,7 +22,7 @@ ActiveRecord::Schema.define(version: 20191202093047) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "prefecture_id"
-
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
