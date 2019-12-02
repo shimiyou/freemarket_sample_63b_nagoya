@@ -5,7 +5,7 @@
   .item__page  
     .item__page__title
       .item__page__title__name
-        ダンベル
+        = @item.name
     .item__page__data
       .item__page__data__photo-box
         .item__page__data__photo-box__photo
@@ -58,14 +58,14 @@
 
     .item__page__price
       .item__page__price__number
-        ¥100,000
+        = converting_to_jpy(@item.price)
       .item__page__price__tax
         (税込)
       .item__page__price__postage
         送料込み
     = link_to "購入画面に進む", edit_item_path, class: "item__page__buy"
     .item__page__text
-      商品を見て頂きありがとうございます！
+      = @item.description
     .item__page__button
       .item__page__button__left
         %button.item__page__button__left__like{type: "button"}
