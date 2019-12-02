@@ -32,29 +32,31 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "メンズ", "#"
-            = link_to "小物", "#" 
-            = link_to "ダンベル", "#"
+            = @item.category.name
         %tr
           %th ブランド
           %td
             = link_to "サバス", "#" 
         %tr
           %th 商品の状態
-          %td やや傷や汚れあり
+          %td
+            = @item.state.text
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td 
+            = @item.postage_side.text
         %tr
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td 
+            = @item.send_method.text
         %tr
           %th 配送元地域
           %td
-            = link_to "東京都", "#" 
+            = @item.prefecture.name
         %tr
           %th 発送日の目安
-          %td 1~2日で発送
+          %td 
+            = @item.send_date.text
 
     .item__page__price
       .item__page__price__number
