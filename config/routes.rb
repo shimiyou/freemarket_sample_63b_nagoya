@@ -4,12 +4,16 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :show, :edit]
   resources :users, only: [:index,:new, :create, :edit, :show] do
     collection do
+      get "logout"
+    end 
+  end
+  resources :signup, only: [:create] do
+    collection do
       get "detail"
       get "phone_number"
       get "address"
       get "pay"
       get "fin"
-      get "logout"
     end 
   end
 end

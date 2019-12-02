@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
   end
   def new
+    @user=User.new
   end
 
   def create
@@ -13,19 +14,5 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def detail
-  end
-
-  def phone_number
-  end
-
-  def address
-  end
-
-  def pay
-  end
-
-  def fin
-  end
 
 end
