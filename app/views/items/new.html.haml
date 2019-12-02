@@ -9,7 +9,7 @@
     %h2.sell-main__header
       商品の情報を入力
     
-    = form_for @item do |f|
+    = form_for @item, url: items_path, method: :post do |f|
       /画像
       .sell-main__form__container
         = f.fields_for :item_images do |i|
@@ -156,7 +156,7 @@
           に同意したことになります。
 
         /出品
-        = f.submit "出品する", method: :post, class: 'red-btn'
+        = f.submit "出品する", class: 'red-btn'
 
         = link_to root_path, class: 'sell-return-btn' do
           もどる
