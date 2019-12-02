@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20191202093047) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -22,23 +23,42 @@ ActiveRecord::Schema.define(version: 20191202093047) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "prefecture_id"
+
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "image_url",  null: false
+    t.integer  "item_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                    null: false
+    t.string   "name",                          null: false
+    t.text     "description",     limit: 65535, null: false
+    t.integer  "price",                         null: false
+    t.integer  "size_id",                       null: false
+    t.integer  "state_id",                      null: false
+    t.integer  "postage_side_id",               null: false
+    t.integer  "send_method_id",                null: false
+    t.integer  "prefecture_id",                 null: false
+    t.integer  "send_date_id",                  null: false
+    t.integer  "category_id",                   null: false
     t.integer  "brand_id"
-    t.string   "name",                       null: false
-    t.integer  "price",                      null: false
-    t.text     "description",  limit: 65535, null: false
-    t.string   "size",                       null: false
-    t.string   "state",                      null: false
-    t.integer  "like_count"
-    t.string   "postage_side",               null: false
-    t.string   "send_method",                null: false
-    t.string   "post",                       null: false
-    t.string   "send_date",                  null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
