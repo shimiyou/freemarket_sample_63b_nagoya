@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_all, only: [:new, :create, :edit, :update]
-
+  before_action :set_all, only: [:new, :create, :show, :edit, :update]
   before_action :set_item, only: [:show, :edit]
 
   def index
-    @item = Item.all
+    @items = Item.all
   end
 
   def new
@@ -26,13 +25,12 @@ class ItemsController < ApplicationController
 
   def edit
   end
-
+  
   private
+
   def set_item
     @item = Item.find(params[:id])
   end
-  
-  private
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :size_id, :state_id, :postage_side_id, :send_method_id, :prefecture_id, :send_date_id, :price, item_images_attributes: [:image_url]).to_h
