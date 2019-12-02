@@ -29,14 +29,7 @@
         もっと見る
     .main-detail__category-item__list
       %ul.main-detail__category-item__list__contents
-        =render "items/index-item"
-        =render "items/index-item"
-        =render "items/index-item"
-        =render "items/index-item"
-        =render "items/index-item"
-        =render "items/index-item"
-        =render "items/index-item"
-        =render "items/index-item"
+        =render partial: "items/index-item", collection: @items
   .main-detail__bland
     .main-detail__bland__title
       .main-detail__bland__title__theme
@@ -58,12 +51,5 @@
         もっと見る
     .main-detail__bland-item__list
       %ul.main-detail__bland-item__list__contents
-        =render "items/index-bland"
-        =render "items/index-bland"
-        =render "items/index-bland"
-        =render "items/index-bland"
-        =render "items/index-bland"
-        =render "items/index-bland"
-        =render "items/index-bland"
-        =render "items/index-bland"
+        =render partial: "items/index-bland", collection: @items
 =render "items/footer"
