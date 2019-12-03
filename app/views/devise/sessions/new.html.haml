@@ -1,0 +1,24 @@
+.container
+  =render "users/new-header"
+  .login-main
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-main__panel
+        .login-main__panel__new
+          .login-main__panel__new__text
+            アカウントをお持ちでない方はこちら
+          .login-main__panel__new__button
+            = link_to "新規会員登録",new_user_path, class: "ogin-main__panel__new__button__text"
+        .login-main__panel__contents
+          = link_to '#', class: 'login-main__panel__contents__facebook' do
+            = fa_icon 'facebook-square', class: 'login-main__panel__contents__facebook__icon'
+            .login-main__panel__contents__facebook__text
+              Facebookでログイン
+          = link_to '#', class: 'login-main__panel__contents__google' do
+            = fa_icon 'google', class: 'login-main__panel__contents__google__icon'
+            .login-main__panel__contents__google__text
+              Googleでログイン
+        .login-main__panel__form
+          = f.email_field :email, autofocus: true, placeholder: "メールアドレス", type: "email", class: "login-main__panel__form__mail"
+          = f.password_field :password, placeholder: "パスワード", type: "password", class: "login-main__panel__form__password"
+          = f.submit "ログイン", class: "login-main__panel__form__login"
+  =render "users/new-footer"
