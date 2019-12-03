@@ -10,4 +10,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :send_method
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :send_date
+  belongs_to :user
 end

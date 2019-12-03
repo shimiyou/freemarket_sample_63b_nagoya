@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit]
 
   def index
-    @items = Item.all
+    @items = Item.includes(:user)
   end
 
   def new
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size_id, :state_id, :postage_side_id, :send_method_id, :prefecture_id, :send_date_id, :price, item_images_attributes: [:image_url]).to_h
+    params.require(:item).permit(:name, :description, :category_id, :size_id, :state_id, :postage_side_id, :send_method_id, :prefecture_id, :send_date_id, :price, item_images_attributes: [:image_url]).merge(user_id: current_user.id).to_h
   end
 
   def set_all
