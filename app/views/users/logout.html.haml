@@ -20,7 +20,7 @@
 .mypage-logout
   .mypage-logout__right
     .mypage-logout__right__btn
-      = link_to "#" do
+      = link_to destroy_user_session_path, method: :delete do
         .mypage-logout__right__btn__out
           ログアウト
 

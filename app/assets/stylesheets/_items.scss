@@ -14,14 +14,15 @@
     width: 160px;
     border-radius: 100px;
     text-align: center;
-    line-height: 170px;
     font-size: 30px;
     text-decoration: none;
 
     &__detail{
+      
     
       .fa.fa-camera{
         font-size: 54px;
+        color: white;
       }
     }
   }
@@ -142,6 +143,7 @@
           }
         }
         &__new{
+          &__entry{
           height: 20px;
           width: 80px;
           border: solid 1px red;
@@ -149,7 +151,22 @@
           color: white;
           line-height: 20px;
           text-align: center;
-          border-radius: 8px;
+          border-radius: 4px;
+          padding: 8px;
+          margin-right: 10px;
+          font-size: 13px;
+          }
+          &__login{
+            height: 20px;
+            width: 80px;
+            border: solid 1px blue;
+            color: blue;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 13px;
+          }
         }
       }
     }
