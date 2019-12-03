@@ -180,12 +180,14 @@
       }
     }
     .bottom{
-      margin-top:24px;
+      margin-top:15px;
       &__text{
+        font-size: 15px;
         text-align: center;
         a{
           color:#0099e8;
           text-decoration: none;
+          display: inline-block;
         }
       }
       .next{
@@ -203,6 +205,7 @@
         margin-top:24px;
         text-align: right;
         a{
+          display: inline-block;
           color:#0099e8;
           text-decoration: none;            
         }

@@ -3,7 +3,7 @@
   margin: 0;
   background-color: #eeeeee;
   .main-page__send-btn{
-
+    
     position: fixed;
     z-index: 3;
     bottom:30px;
@@ -14,15 +14,18 @@
     width: 160px;
     border-radius: 100px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
+
+    &__name {
+      margin: 25px 0 5px;
+    }
 
     &__detail{
       
     
       .fa.fa-camera{
-        font-size: 54px;
-        color: white;
+        font-size: 55px;
       }
     }
   }
@@ -420,7 +423,7 @@
   }
   .advertisement{
     .advertisement-image{
-      background-image: image-url('/assets/7e410cf91919c3cab382d6daa4f55454_t.png');
+      background-image: image-url('/assets/mypage1.svg');
       width: 100vw;
       height: 240px;
       background-size: cover;
