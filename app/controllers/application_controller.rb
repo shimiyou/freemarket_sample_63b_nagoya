@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
+  protected
+
+  def configure_permitted_parameters
+   
+    added_attrs = [:nickname, :email, :last_name,:first_name_kana,:password,:birthday,:phone_number,:postal_code,:prefecture_id,:city,:house_number,:build_number,:house_phone_number ]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+  end
 
   private
 

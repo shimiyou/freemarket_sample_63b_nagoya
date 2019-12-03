@@ -27,12 +27,13 @@ class SignupController < ApplicationController
     
     if @user.save!
       session[:user_id] = @user.id
-      redirect_to fin_signup_index_path
+      redirect_to fin_signup_index_path(@user.id)
     else
       render detail_signup_index_path
     end
   end
-  def done
+  def fin
+    sign_in User.find(session[:user_id]) unless user_signed_in?
   end
 
 
@@ -53,7 +54,7 @@ class SignupController < ApplicationController
     )
   end
   def user_params_a
-    params.require(:user).permit(address_attributes: [:postal_code,:prefecture_id,:city,:house_number,:build_number,:house_phone_number]).merge(
+    params.require(:user).permit(address_attributes: [:id,:postal_code,:prefecture_id,:city,:house_number,:build_number,:house_phone_number]).merge(
     nickname: session[:nickname], 
     email: session[:email],
     password: session[:password],
