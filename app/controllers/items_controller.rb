@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_all, only: [:new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :set_item_image, only: [:index, :show]
 
   def index
     @items = Item.includes(:user)
@@ -22,15 +23,28 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = @item.item_images
   end
 
   def edit
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
   
   private
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_item_image
+    @item_images = ItemImage.all
   end
 
   def item_params

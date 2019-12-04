@@ -76,3 +76,4 @@ gem 'fog-aws'
 
 gem 'active_hash'
 gem 'ancestry'
+gem 'gretel'
