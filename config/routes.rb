@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index,:new, :create, :edit, :show] do
     collection do
       get "logout"
+      get "check"
     end 
   end
   resources :signup, only: [:create] do
