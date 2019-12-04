@@ -13,6 +13,11 @@ crumb :user_edit do
   parent :user_show
 end
 
+crumb :user_check do
+  link '本人情報の登録', user_path(current_user.id)
+  parent :user_show
+end
+
 crumb :user_logout do
   link 'ログアウト', user_path(current_user.id)
   parent :user_show

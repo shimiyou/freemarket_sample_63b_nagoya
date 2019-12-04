@@ -1,0 +1,89 @@
+//右側
+.content {
+  width: 700px;
+  height: 1292px;
+  float: right;
+
+  .user-info {
+    background-color: #fff;
+    width: 700px;
+    margin:  auto;
+
+    &__header {
+      height: 34px;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 8px 24px;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    &__main {
+      padding: 64px;
+
+      &__text {
+        font-size: 14px;
+        margin-bottom: 40px;
+      }
+
+      &__link {
+        padding-top: 40px;
+      }
+    }
+  }
+}
+
+.user-info-p {
+  font-size: 14px;
+  margin: 8px 0 40px;
+}
+
+.form-size {
+  width: 537px;
+  margin: 8px 0 40px;
+  padding: 10px 16px 8px;
+}
+
+.info-link {
+  display: block;
+  text-align: right;
+  color: #0099e8;
+}
+
+.form-arbitrary {
+  background-color: #ccc;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
+  margin-left: 8px;
+  border-radius: 2px;
+  vertical-align: center;
+}
+
+.form-style {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-select {
+  background-color: #fff;
+  width: 100%;
+  height: 48px;
+  margin: 8px 0 40px;
+  cursor: pointer;
+}
+
+.form-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.red-btn {
+  background-color: #ea352d;
+  color: #fff;
+  width: 100%;
+  height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
