@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    #binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -44,7 +45,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :send_date_id,
       :price,
-      item_images_attributes: [:image_url]
+      item_images_attributes: [:image]
     ).merge(user_id: current_user.id).to_h
   end
 
