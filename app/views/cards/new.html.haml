@@ -1,0 +1,82 @@
+.user-header
+  =render "users/new-header-progress"
+  .user-header-pay
+    =render "users/new-header-progress-1"
+.main
+  .rightbar
+    .rightbar__header
+      支払い方法
+    .rightbar__main
+      .rightbar__main__contents
+        = form_tag(cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+          .rightbar__main__contents__num
+            .rightbar__main__contents__num__text
+              .rightbar__main__contents__num__text__card-num
+                カード番号
+              .rightbar__main__contents__num__text__must
+                必須
+            = text_field_tag "number", "", class: "rightbar__main__contents__num__text-box", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            .rightbar__main__contents__num__list
+              .rightbar__main__contents__num__list__card-a
+                =image_tag '/assets/visa_image.png',class:'image'
+              .rightbar__main__contents__num__list__card-b
+                =image_tag '/assets/shutterstock_740189848.jpg',class:'image'
+              .rightbar__main__contents__num__list__card-c
+                =image_tag '/assets/ダウンロード.png',class:'image'
+              .rightbar__main__contents__num__list__card-d
+                =image_tag '/assets/_JCB-512.png',class:'image'
+              .rightbar__main__contents__num__list__card-e
+                =image_tag '/assets/601px-American_Express_logo_(2018).svg.png',class:'image'
+              .rightbar__main__contents__num__list__card-f
+                =image_tag '/assets/st_34top.jpg',class:'image'
+              .rightbar__main__contents__num__list__card-g
+                =image_tag '/assets/ダウンロード (1).png',class:'image'
+            
+          .rightbar__main__contents__day
+            .rightbar__main__contents__day__text
+              .rightbar__main__contents__day__text__card-num
+                %label.length 有効期限
+                %span.form-require 必須
+              .rightbar__main__contents__day__text__detail
+                .rightbar__main__contents__day__text__detail__month
+                  %select#exp_month{name: "exp_month", type: "text", class: "select-default"}
+                    %option{value: "01"} 01
+                    %option{value: "02"} 02
+                    %option{value: "03"} 03
+                    %option{value: "04"} 04
+                    %option{value: "05"} 05
+                    %option{value: "06"} 06
+                    %option{value: "07"} 07
+                    %option{value: "08"} 08
+                    %option{value: "09"} 09
+                    %option{value: "10"} 10
+                    %option{value: "11"} 11
+                    %option{value: "12"} 12
+                  %span 月
+                .rightbar__main__contents__day__text__detail__year
+                  %select#exp_year{name: "exp_year", type: "text", class: "select-default2"}
+                    %option{value: "2019"} 19
+                    %option{value: "2020"} 20
+                    %option{value: "2021"} 21
+                    %option{value: "2022"} 22
+                    %option{value: "2023"} 23
+                    %option{value: "2024"} 24
+                    %option{value: "2025"} 25
+                    %option{value: "2026"} 26
+                    %option{value: "2027"} 27
+                    %option{value: "2028"} 28
+                    %option{value: "2029"} 29
+                  %span 年
+          .rightbar__main__contents__coad
+            .rightbar__main__contents__coad__text
+              .rightbar__main__contents__coad__text__card-num
+                セキュリティーコード
+              .rightbar__main__contents__coad__text__must
+                必須
+            = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+            .rightbar__main__contents__coad__text__link
+              カード裏面の番号とは?
+          .rightbar__main__contents__send
+            #card_token
+            = submit_tag "追加する", id: "token_submit",class:'send'
+=render "users/new-footer"

@@ -27,13 +27,13 @@ class SignupController < ApplicationController
     
     if @user.save!
       session[:user_id] = @user.id
-      redirect_to fin_signup_index_path(@user.id)
+      sign_in User.find(@user.id) unless user_signed_in?
+      redirect_to new_card_path(@user.id)
     else
       render detail_signup_index_path
     end
   end
   def fin
-    sign_in User.find(session[:user_id]) unless user_signed_in?
   end
 
 
