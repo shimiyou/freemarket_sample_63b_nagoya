@@ -19,12 +19,12 @@
               必須
           %p.sell-form__upload__text
             最大10枚までアップロードできます
-          = i.label :image_url, class: 'sell-form__upload__box' do
+          = i.label :image, class: 'sell-form__upload__box' do
             %p.sell-form__upload__box__text
               ドラッグアンドドロップ
               %br
                 またはクリックしてファイルをダウンロード
-            = i.file_field :image_url, multipart: true, class: 'sell-form__upload__box__file'
+            = i.file_field :image, class: 'sell-form__upload__box__file'
 
       /商品
       .sell-main__form__container

@@ -1,23 +1,78 @@
-//プロフィール編集 view
-//上部
-= render 'items/header'
+//ユーザー本人確認ページ
+=render "items/header"
 .mypage-header
   .mypage-header__list
     =render 'shared/breadcrumbs'
 
 //右側ユーザー名
 .mypage-main
-  .mypage-main__profile
-    .mypage-main__profile__head
-      プロフィール
-    .mypage-main__profile__name  
-      .mypage-main__profile__name__icon
-      %textarea{class:"mypage-main__profile__name__nickname",placeholder:"例)AYA☆セール中"}
-    .mypage-main__profile__input
-      %textarea{class:"mypage-main__profile__input__text",placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-      = link_to "#" do
-        %button.mypage-main__profile__input__btn
-          変更する
+  .container
+    .content
+      .user-info
+        %h2.user-info__header
+          本人情報の登録
+
+        .user-info__main
+          %p.user-info__main__text
+            お客さまの本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            = link_to '#', class: 'info-link' do
+              本人確認書類のアップロードについて
+              = fa_icon 'chevron-right'
+
+          %h4.form-title
+            お名前
+          %p.user-info-p
+            シェイン コス 
+
+          %h4.form-title
+            お名前カナ
+          %p.user-info-p
+            ケン コスギ
+
+          %h4.form-title
+            生年月日
+          %p.user-info-p
+            2000/01/01
+
+          %h4.form-title
+            郵便番号
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例）1234567", class: 'form-size form-style'}
+
+          %h4.form-title
+            都道府県
+            %span.form-arbitrary
+              任意
+          %select{class: 'form-select form-style'}
+            %option --
+
+          %h4.form-title
+            市区町村
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例)横浜市緑区", class: 'form-size form-style'}
+
+          %h4.form-title
+            番地
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例)青山1-1-1", class: 'form-size form-style'}
+
+          %h4.form-title
+            建物名
+            %span.form-arbitrary
+              任意
+          %input{placeholder: "例)柳ビル103", class: 'form-size form-style'}
+
+          %button.red-btn
+            登録する
+
+          = link_to '#', class: 'user-info__main__link info-link' do
+            本人情報の登録について
+            = fa_icon 'chevron-right'
 
   //左側のリスト
   .mypage-main__left
@@ -121,4 +176,4 @@
           %li.mypage-main__left__nav__list__item
             ログアウト
             .mypage-main__left__nav__list__item__icon
-= render 'items/footer'
+=render "items/footer"
