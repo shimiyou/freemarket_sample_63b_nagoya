@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
   before_action :set_image, only: [:index]
 
   def index
-    @item = Item.includes(:user)
-    @items = @images
+    @items = Item.includes(:user)
+    @item_images = @images
   end
 
   def new
