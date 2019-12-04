@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_all, only: [:new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :destroy]
 
   def index
+    @images = ItemImage.all
     @items = Item.includes(:user)
   end
 
@@ -25,12 +26,22 @@ class ItemsController < ApplicationController
 
   def edit
   end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
   
   private
 
   def set_item
     @item = Item.find(params[:id])
   end
+
+
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :size_id, :state_id, :postage_side_id, :send_method_id, :prefecture_id, :send_date_id, :price, item_images_attributes: [:image_url]).merge(user_id: current_user.id).to_h
