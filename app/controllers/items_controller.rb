@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :send_date_id,
       :price,
-      item_images_attributes: [image_url: []]
+      item_images_attributes: [:image_url]
     ).merge(user_id: current_user.id).to_h
   end
 
