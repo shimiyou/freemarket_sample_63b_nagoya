@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
   before_action :set_item, only: [:show, :edit, :destroy]
-  before_action :set_image, only: [:index]
+  before_action :set_item_image, only: [:index, :show]
 
   def index
     @items = Item.includes(:user)
-    @item_images = @images
   end
 
   def new
@@ -23,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @images = @item.item_images
   end
 
   def edit
@@ -42,8 +42,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def set_image
-    @images = ItemImage.all
+  def set_item_image
+    @item_images = ItemImage.all
   end
 
   def item_params
