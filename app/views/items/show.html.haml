@@ -67,7 +67,7 @@
         送料込み
     - if user_signed_in? && current_user.id == @item.user_id
       = link_to "商品の編集", edit_item_path, class: "item__page__buy"
-      = link_to "商品の削除", "/items/#{@item.id}", method: :delete, class: "item__page__delete"
+      = link_to "商品の削除", item_path(@item.id), method: :delete, class: "item__page__delete"
     - elsif user_signed_in?
       = link_to "購入画面に進む", buy_items_path, class: "item__page__buy"
     - else
