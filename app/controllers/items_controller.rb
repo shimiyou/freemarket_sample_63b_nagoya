@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy]
 
   def index
-    @images = ItemImage.all
     @items = Item.includes(:user)
   end
 
@@ -40,8 +39,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-
 
   def item_params
     params.require(:item).permit(
