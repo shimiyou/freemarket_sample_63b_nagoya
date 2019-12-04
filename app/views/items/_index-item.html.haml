@@ -1,10 +1,10 @@
-- @items.each do |item|
+- @item_images.each do |item_image|
   %li.main-detail__category-item__list__contents__detail
-    =link_to item_path(item.id), class:"main-detail__category-item__list__contents__detail__content" do
+    =link_to item_path(item_image.item.id), class:"main-detail__category-item__list__contents__detail__content" do
       .main-detail__category-item__list__contents__detail__content__aline
         .main-detail__category-item__list__contents__detail__content__aline__image
-          =image_tag "",class:"image"
+          =image_tag "#{item_image.image_url}",class:"image"
           .main-detail__category-item__list__contents__detail__content__aline__image__fee
-            = converting_to_jpy(item.price)
+            = converting_to_jpy(item_image.item.price)
         .main-detail__category-item__list__contents__detail__content__aline__text
-          = item.name
+          = item_image.item.name
