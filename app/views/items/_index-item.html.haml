@@ -1,9 +1,10 @@
-%li.main-detail__category-item__list__contents__detail
-  =link_to item_path(@items.ids), class:"main-detail__category-item__list__contents__detail__content" do
-    .main-detail__category-item__list__contents__detail__content__aline
-      .main-detail__category-item__list__contents__detail__content__aline__image
-        =image_tag "7e410cf91919c3cab382d6daa4f55454_t.png",class:"image"
-        .main-detail__category-item__list__contents__detail__content__aline__image__fee
-          ¥9,999,999
-      .main-detail__category-item__list__contents__detail__content__aline__text
-        未使用筋肉
+- @item_images.each do |item_image|
+  %li.main-detail__category-item__list__contents__detail
+    =link_to item_path(item_image.item.id), class:"main-detail__category-item__list__contents__detail__content" do
+      .main-detail__category-item__list__contents__detail__content__aline
+        .main-detail__category-item__list__contents__detail__content__aline__image
+          =image_tag "#{item_image.image}",class:"image"
+          .main-detail__category-item__list__contents__detail__content__aline__image__fee
+            = converting_to_jpy(item_image.item.price)
+        .main-detail__category-item__list__contents__detail__content__aline__text
+          = item_image.item.name
