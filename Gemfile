@@ -73,7 +73,10 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
-
+gem 'dotenv-rails'
 gem 'active_hash'
 gem 'ancestry'
+
+gem 'payjp'
+
 gem 'gretel'
