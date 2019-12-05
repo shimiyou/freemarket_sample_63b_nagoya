@@ -53,6 +53,8 @@
                 %span.form-require
                   必須
               = f.collection_select :category_id, @parents, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :category_id, @children, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.collection_select :category_id, @parents, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
             .sell-form__item__detail__content__size
               %h4.form-title
                 サイズ
