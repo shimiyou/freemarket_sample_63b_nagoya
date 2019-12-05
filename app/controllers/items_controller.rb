@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :set_item, only: [:show, :edit, :destroy, :update]
   before_action :set_item_image, only: [:index, :show]
 
   def index
@@ -27,6 +27,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
