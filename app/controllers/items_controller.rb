@@ -11,8 +11,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_brand
-    @parents = Category.roots
-    @children = @parents.second.children
   end
 
   def create
@@ -85,6 +83,8 @@ class ItemsController < ApplicationController
   end
 
   def set_all
+    @parents = Category.roots
+    @children = @parents.second.children
     @size = Size.all
     @state = State.all
     @postage_side = PostageSide.all
