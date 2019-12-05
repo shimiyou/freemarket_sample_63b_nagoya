@@ -5,20 +5,17 @@
   .item__page  
     .item__page__title
       .item__page__title__name
-        ダンベル
+        = @item.name
     .item__page__data
       .item__page__data__photo-box
         .item__page__data__photo-box__photo
-          = image_tag "man.png", class: "item__page__data__photo-box__photo__main"
-        .item__page__data__photo-box__photos
-          = image_tag "man.png", class: "item__page__data__photo-box__photos__first"
-          = image_tag "sports.png",class: "item__page__data__photo-box__photos__second"
-
+        - @images.each do |image|
+          = image_tag image.image, class: "item__page__data__photo-box__photo__main"
       %table.item__page__data__list
         %tr
           %th 出品者
           %td
-            = link_to "なかやまきんにくん","#"
+            = link_to "#{@item.user.nickname}"
             .item__page__data__list__box
               .item__page__data__list__box__good
                 = fa_icon "thumbs-up"
@@ -32,40 +29,48 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "メンズ", "#"
-            = link_to "小物", "#" 
-            = link_to "ダンベル", "#"
+            = @item.category.name
         %tr
           %th ブランド
           %td
             = link_to "サバス", "#" 
         %tr
           %th 商品の状態
-          %td やや傷や汚れあり
+          %td
+            = @item.state.text
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td 
+            = @item.postage_side.text
         %tr
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td 
+            = @item.send_method.text
         %tr
           %th 配送元地域
           %td
-            = link_to "東京都", "#" 
+            = @item.prefecture.name
         %tr
           %th 発送日の目安
-          %td 1~2日で発送
+          %td 
+            = @item.send_date.text
 
     .item__page__price
       .item__page__price__number
-        ¥100,000
+        = converting_to_jpy(@item.price)
       .item__page__price__tax
         (税込)
       .item__page__price__postage
         送料込み
-    = link_to "購入画面に進む", edit_item_path, class: "item__page__buy"
+    - if user_signed_in? && current_user.id == @item.user_id
+      = link_to "商品の編集", edit_item_path, class: "item__page__buy"
+      = link_to "商品の削除", item_path(@item.id), method: :delete, class: "item__page__delete"
+    - elsif user_signed_in?
+      = link_to "購入画面に進む", buy_items_path, class: "item__page__buy"
+    - else
+      = link_to "購入にはログインが必要です", new_user_session_path, class: "item__page__delete"
     .item__page__text
-      商品を見て頂きありがとうございます！
+      = @item.description
     .item__page__button
       .item__page__button__left
         %button.item__page__button__left__like{type: "button"}

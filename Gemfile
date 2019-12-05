@@ -77,3 +77,9 @@ gem 'fog-aws'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'active_hash'
+gem 'ancestry'
+
+gem 'payjp'
+
+gem 'gretel'

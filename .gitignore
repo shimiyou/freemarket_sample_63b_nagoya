@@ -17,3 +17,5 @@
 .byebug_history
 config/secrets.yml
 !/tmp/server.key
+public/uploads
+.env

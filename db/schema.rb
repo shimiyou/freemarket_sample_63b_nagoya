@@ -10,23 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191128104518) do
+ActiveRecord::Schema.define(version: 20191204110243) do
+
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",            null: false
+    t.integer  "postal_code",        null: false
+    t.string   "city",               null: false
+    t.string   "house_number",       null: false
+    t.string   "build_number"
+    t.string   "house_phone_number"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "prefecture_id"
+  end
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "item_id",    null: false
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "item_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+  end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "brand_id"
-    t.string   "name",                       null: false
-    t.integer  "price",                      null: false
-    t.text     "description",  limit: 65535, null: false
-    t.string   "size",                       null: false
-    t.string   "state",                      null: false
-    t.integer  "like_count"
-    t.string   "postage_side",               null: false
-    t.string   "send_method",                null: false
-    t.string   "post",                       null: false
-    t.string   "send_date",                  null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                          null: false
+    t.text     "description",     limit: 65535, null: false
+    t.integer  "price",                         null: false
+    t.integer  "size_id",                       null: false
+    t.integer  "state_id",                      null: false
+    t.integer  "postage_side_id",               null: false
+    t.integer  "send_method_id",                null: false
+    t.integer  "prefecture_id",                 null: false
+    t.integer  "send_date_id",                  null: false
+    t.integer  "category_id",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "user_id",                       null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,7 +78,6 @@ ActiveRecord::Schema.define(version: 20191128104518) do
     t.string   "last_name",                           null: false
     t.string   "first_name_kana",                     null: false
     t.string   "last_name_kana",                      null: false
-    t.integer  "phone_number",                        null: false
     t.date     "birthday",                            null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
