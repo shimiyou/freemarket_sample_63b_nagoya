@@ -10,11 +10,11 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
+    @item.build_brand
   end
 
   def create
     @item = Item.new(item_params)
-    #binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -59,7 +59,8 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :send_date_id,
       :price,
-      item_images_attributes: [:image]
+      item_images_attributes: [:id, :image],
+      brand_attributes: [:id, :name]
     ).merge(user_id: current_user.id).to_h
   end
 
