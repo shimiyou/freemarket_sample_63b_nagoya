@@ -10,13 +10,13 @@
           = fa_icon 'envelope', class: 'user-new__main__main__content__mail-address__icon'
           .user-new__main__main__content__mail-address__text
             メールアドレスで登録する
-        = link_to '#', class: 'user-new__main__main__content__facebook' do
+        = link_to user_facebook_omniauth_authorize_path, class: 'user-new__main__main__content__facebook' do
           = fa_icon 'facebook-square', class: 'user-new__main__main__content__facebook__icon'
           .user-new__main__main__content__facebook__text
-            Facebookで登録する
-        = link_to users_path, class: 'user-new__main__main__content__google' do
+            = 'Facebookで登録する'
+        = link_to user_google_oauth2_omniauth_authorize_path, class: 'user-new__main__main__content__google' do
           = fa_icon 'google', class: 'user-new__main__main__content__google__icon'
           .user-new__main__main__content__google__text
-            Googleで登録する
+            = 'Googleで登録する'
   =render "users/new-footer"
   

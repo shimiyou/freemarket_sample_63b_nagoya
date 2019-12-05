@@ -151,6 +151,34 @@
         p{
           color:#888
         }
+        .born{
+          
+          .year{
+            width:25%;
+            margin:8px 0 0;
+            height:48px;
+            border-radius: 7px 7px 7px 7px;
+            padding-left:5px;
+            background-color: #fff;
+
+          }
+          .month{
+            width:25%;
+            margin:8px 0 0;
+            height:48px;
+            border-radius: 7px 7px 7px 7px;
+            padding-left:5px;
+            background-color: #fff;
+          }
+          .day{
+            width:25%;
+            margin:8px 0 0;
+            height:48px;
+            border-radius: 7px 7px 7px 7px;
+            padding-left:5px;
+            background-color: #fff;
+          }
+        }
       }
       .bottom{
         margin-top:24px;

@@ -7,45 +7,48 @@
     .main__inform__register
       %h2 会員情報入力
     .content
-      .content__nickname
-        %label  ニックネーム
-        %span.form-require 必須
-        %input.input-default{name: "nickname", placeholder: "例) メルカリ太郎", type: "text", value: ""}
-      .content__mail
-        %label  メールアドレス
-        %span.form-require 必須
-        %input.input-default{name: "mailbox", placeholder: "PC・携帯どちらでも可", type: "text", value: ""}
-      .content__password
-        %label パスワード
-        %span.form-require 必須
-        %input.input-default{name: "password", placeholder: "7文字以上", type: "text", value: ""}
-      .content__confirm
-        %h3 本人確認
-        %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-      .content__name
-        %label  お名前(全角)
-        %span.form-require 必須
-        .content__name__content
-          %input.input-default-devide{name: "firstname", placeholder: "例）山田", type: "text", value: ""}
-          %input.input-default-devide{name: "lastname", placeholder: "例)彩", type: "text", value: ""}
-      .content__kana
-        %label  お名前カナ(全角)
-        %span.form-require 必須
-        .content__kana__content
-          %input.input-default-devide{name: "kanafirstname", placeholder: "ヤマダ", type: "text", value: ""}
-          %input.input-default-devide{name: "kanalastname", placeholder: "アヤ", type: "text", value: ""}                
-      .content__birthday
-        %label 生年月日
-        %span.form-require 必須
-        %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-      .bottom
-        .bottom__robot
-        .bottom__text
-          %P「次へ進む」のボタンを押すことにより、
-          %a{href: "＃"} 利用規約
-          %p に同意したものとみなします
-          =link_to phone_number_users_path do
-            %button.next{type: "submit"} 次へ進む
+      = form_for :user do |f|
+        .content__nickname
+          %label  ニックネーム
+          %span.form-require 必須
+          %input.input-default{name: "nickname", placeholder: "例) メルカリ太郎", type: "text", value: ""}
+        .content__mail
+          %label  メールアドレス
+          %span.form-require 必須
+          %input.input-default{name: "mailbox", placeholder: "PC・携帯どちらでも可", type: "text", value: ""}
+        .content__password
+          %label パスワード
+          %span.form-require 必須
+          %input.input-default{name: "password", placeholder: "7文字以上", type: "text", value: ""}
+        .content__confirm
+          %h3 本人確認
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .content__name
+          %label  お名前(全角)
+          %span.form-require 必須
+          .content__name__content
+            %input.input-default-devide{name: "firstname", placeholder: "例）山田", type: "text", value: ""}
+            %input.input-default-devide{name: "lastname", placeholder: "例)彩", type: "text", value: ""}
+        .content__kana
+          %label  お名前カナ(全角)
+          %span.form-require 必須
+          .content__kana__content
+            %input.input-default-devide{name: "kanafirstname", placeholder: "ヤマダ", type: "text", value: ""}
+            %input.input-default-devide{name: "kanalastname", placeholder: "アヤ", type: "text", value: ""}                
+        .content__birthday
+          %label 生年月日
+          %span.form-require 必須
+          .born
+            != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'birth', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+          %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .bottom
+          .bottom__robot
+          .bottom__text
+            %P「次へ進む」のボタンを押すことにより、
+            %a{href: "＃"} 利用規約
+            %p に同意したものとみなします
+            =link_to phone_number_users_path do
+              %button.next{type: "submit"} 次へ進む
         .bottom__right
           %a{href: "＃"} 本人情報の登録について
 =render "new-footer"
