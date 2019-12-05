@@ -129,6 +129,7 @@
       &__name{
         &__content{
           display: flex;
+          justify-content: space-between;
         }
       }
       &__confirm{
@@ -144,6 +145,7 @@
         margin-top:24px;
         &__content{
           display: flex;
+          justify-content: space-between;
         }
       }
       &__birthday{
