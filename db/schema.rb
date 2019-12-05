@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20191204110243) do
 
+
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",            null: false
     t.integer  "postal_code",        null: false
@@ -29,6 +30,14 @@ ActiveRecord::Schema.define(version: 20191204110243) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "item_id",    null: false
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
