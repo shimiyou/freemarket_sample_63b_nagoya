@@ -20,7 +20,6 @@ class User < ApplicationRecord
         nickname: auth.info.name,
         uid: auth.uid,
         provider: auth.provider,
-                
         password: Faker::Internet.password(min_length: 8,max_length: 128)
       )
       return new_user
