@@ -91,11 +91,3 @@ ActiveRecord::Schema.define(version: 20191204110243) do
   end
 
 end
-
-
-
-
-
-
-
-
