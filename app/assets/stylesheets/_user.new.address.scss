@@ -115,6 +115,7 @@
         border-radius: 3px 3px 3px 3px;
         padding-left:5px;
       }
+      
       .form-require{
         background-color: red;
         color:white;  
@@ -150,4 +151,8 @@
          padding-left:5px;
       }
   }    
+}
+ul.error{
+  color: #ea352d;
+  display: block;
 }

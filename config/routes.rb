@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users,controllers: {omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations"}
   root to: 'items#index'
-  resources :items, only: [:index, :new, :create, :show, :edit, :destroy] do
+  resources :items, only: [:index, :new, :create, :show, :edit, :destroy, :update] do
     collection do
+
       get "buy"
-      get "category"
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+
+    end
+    member do
+      get "buy"
     end
   end
   resources :users, only: [:index,:new, :create, :edit, :show] do
@@ -22,7 +28,4 @@ Rails.application.routes.draw do
       get "fin"
     end 
   end
-  resources :cards, only: [:create, :show, :new] do
-
-  end 
 end
