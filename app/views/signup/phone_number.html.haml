@@ -12,6 +12,12 @@
         =form_for @user, url:address_signup_index_path,method: :get do |f|
           %label 携帯電話の番号
           = f.text_field :phone_number,placeholder: "携帯電話の番号を入力",class: "entry"
+          - if @user.errors.any?
+            - unless @user.valid?
+              - if errors = @user.errors.full_messages_for(:phone_number)
+                %ul.error
+                  - errors.each do |error|
+                    %li=error
           %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           =f.submit "SMSを送信する",class:"tap"
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。

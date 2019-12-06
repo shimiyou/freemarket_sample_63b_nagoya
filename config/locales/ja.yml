@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: 名前
+        email: メールアドレス
+        last_name: 名
+        first_name: 性
+        last_name_kana: 名カナ
+        first_name_kana: 性カナ
+        password: パスワード
+        birthday: 生年月日
+        phone_number: 電話番号
+      address:
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市町村名
+        house_number: 番地を入力してください
+        build_number: 建物名
+        house_phone_number: 電話番号
