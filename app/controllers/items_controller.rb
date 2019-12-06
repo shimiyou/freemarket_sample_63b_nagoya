@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       params[:item_images]['image'].each do |a|
-        @item_image = @item.item_images.create!(image: a)
+        @item.item_images.create!(image: a)
       end
       redirect_to root_path
     else

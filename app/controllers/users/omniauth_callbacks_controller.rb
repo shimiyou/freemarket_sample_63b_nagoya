@@ -22,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:password_confirmation] = @user.password
       session[:provider] = @user.provider
       session[:uid] = @user.uid
-      redirect_to detail_users_path
+      redirect_to detail_signup_index_path
     end
   end
 end
