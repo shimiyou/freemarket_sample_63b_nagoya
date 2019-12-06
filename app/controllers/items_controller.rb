@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :set_item, only: [:show, :edit, :destroy, :update]
   before_action :set_item_image, only: [:index, :show]
 
+
   def index
-    @items = Item.includes(:user)
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -28,6 +29,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      params[:item_images]['image'].each do |a|
+        @item_image = @item.item_images.create!(image: a)
+      end
       redirect_to root_path
     else
       render_to_string :new
@@ -39,6 +43,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -71,12 +83,14 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :send_date_id,
       :price,
-      item_images_attributes: [:id, :image],
+      item_images_attributes: [:image],
       brand_attributes: [:id, :name]
     ).merge(user_id: current_user.id).to_h
   end
 
   def set_all
+    @parents = Category.roots
+    @children = @parents.second.children
     @size = Size.all
     @state = State.all
     @postage_side = PostageSide.all
