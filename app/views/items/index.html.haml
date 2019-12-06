@@ -5,7 +5,7 @@
       出品
     .main-page__send-btn__detail
       %i.fa.fa-camera.fa
-=render "items/header"
+=render partial: "items/header"
 .swiper-containers
   = image_tag "D220-1.jpg",class:"swiper-containers__image"
 .main-detail
@@ -53,4 +53,4 @@
     .main-detail__bland-item__list
       %ul.main-detail__bland-item__list__contents
         =render partial: "items/index-bland"
-=render "items/footer"
+=render partial: "items/footer"
