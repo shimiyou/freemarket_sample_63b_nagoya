@@ -4,9 +4,7 @@ class Address < ApplicationRecord
   belongs_to :user, optional: true
   # address入力項目
   validates :postal_code, presence: true, numericality: {only_integer: true}
-  validates :prefecture_id, presence: true
-  validates :city, presence: true
-  validates :house_number, presence: true
+  validates :prefecture_id,:house_number,:city, presence: true
 
 end
 

@@ -17,6 +17,6 @@ ja:
         postal_code: 郵便番号
         prefecture_id: 都道府県
         city: 市町村名
-        house_number: 番地を入力してください
+        house_number: 番地
         build_number: 建物名
         house_phone_number: 電話番号
