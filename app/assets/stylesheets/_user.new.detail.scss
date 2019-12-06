@@ -114,7 +114,7 @@
       }
     
       .input-default-devide{
-        width:45%;
+        width:80%;
         margin:8px 0 0;
         height:48px;
         border-radius: 7px 7px 7px 7px;
@@ -127,8 +127,10 @@
         margin-top: 24px;
       }
       &__name{
-        &__content{
+
+        &__contents{
           display: flex;
+          justify-content: space-between;
         }
       }
       &__confirm{
@@ -142,8 +144,9 @@
       }
       &__kana{
         margin-top:24px;
-        &__content{
+        &__contents{
           display: flex;
+          justify-content: space-between;
         }
       }
       &__birthday{

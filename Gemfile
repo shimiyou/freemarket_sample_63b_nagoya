@@ -73,10 +73,13 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'active_hash'
 gem 'ancestry'
 
 gem 'payjp'
-
+gem 'rails-i18n'
 gem 'gretel'

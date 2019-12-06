@@ -14,7 +14,7 @@
 
   .user-new__main {
     background-color: #fff;
-    width: 700px;
+    width: 650px;
     margin: 0 auto;
 
     &__header {
@@ -102,37 +102,36 @@
     }
   }
 
-  .footer {
-    padding: 20px 0;
-    width: 420px;
-    margin: 0 auto;
-
-    &__contents {
-      display: flex;
-      justify-content: space-around;
-
-      &__content {
-        color: #333;
-        text-decoration: none;
-        font-size: 12px;
-        border-bottom: 1px solid rgb(245, 245, 245);
-
-        &:hover {
-          border-bottom: 1px solid #333;
-        }
+  .user-footer{
+    width: 100%;
+    background-color:#eeeeee;
+    height: 180px;
+    text-align: center;
+    padding-top:151px;
+    position: absolute;
+    &__contents{
+      font-size: 12px;
+      &__terms{
+        padding: 0 0 0 16px;
+      }
+      &__transaction{
+        padding: 0 0 0 16px;
       }
     }
-
-    &__logo {
-      margin: 40px auto 0;
-      width: 80px;
+    &__logo{
+      line-height: 128px;
+      height: 100px;
+      &__image{
+      margin-top: 30px;
       height: 65px;
-      display: block;
+      width: 70px;
+      }
     }
-
-    &__c {
+    &__copywriter {
       font-size: 10px;
-      text-align: center;
+    }
+    a{color: #333;
     }
   }
 }
+   
