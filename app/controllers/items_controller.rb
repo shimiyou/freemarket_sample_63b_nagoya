@@ -55,6 +55,9 @@ class ItemsController < ApplicationController
     end
   end
   
+  def buy
+    @item = Item.find(params[:id])
+  end
   private
 
   def set_item

@@ -1,4 +1,4 @@
--# 商品購入確認画面(仮)
+-# 商品購入確認画面
 .container
   =render "users/new-header"
   .buy
@@ -7,21 +7,21 @@
     .buy__item
       .buy__item__content
         .buy__item__content__image
-        = image_tag "man.png", class: "buy__item__content__image__photo"
-        .buy__item__content__name
-          ダンベル
-      .buy__item__price
-        .buy__item__price__number
-          ¥100,000
-        .buy__item__price__postage
-          送料込み
+          = image_tag @item.item_images.first.image.to_s, class: "buy__item__content__image__photo"
+        .buy__item__content__titel
+          .buy__item__content__titel__name
+            = @item.name
+            .buy__item__content__titel__name__number
+              = converting_to_jpy(@item.price)
+            .buy__item__content__titel__name__postage
+              （税込）送料込み
       .buy__item__point
         ポイントはありません
       .buy__item__total
         .buy__item__total__pay
           支払い金額
         .buy__item__total__price
-          ¥100,000
+          = converting_to_jpy(@item.price)
       .buy__item__red
         = link_to "購入する","#"
     .buy__delivery
