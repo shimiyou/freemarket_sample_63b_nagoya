@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: 'items#index'
   resources :items, only: [:index, :new, :create, :show, :edit, :destroy, :update] do
     collection do
-      get "category"
+
+      get "buy"
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+
     end
     member do
       get "buy"

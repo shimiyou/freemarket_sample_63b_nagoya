@@ -10,7 +10,7 @@
       .item__page__data__photo-box
         .item__page__data__photo-box__photo
         - @images.each do |image|
-          = image_tag image.image, class: "item__page__data__photo-box__photo__main"
+          = image_tag image.image.url.to_s, class: "item__page__data__photo-box__photo__main"
       %table.item__page__data__list
         %tr
           %th 出品者
