@@ -10,7 +10,20 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_image = @item.item_images.build
+    @item.item_images.build
+    @item.build_brand
+    @parents = ['---']
+    Category.where(ancestry: nil).each do |parent|
+      @parents << parent.name
+    end
+  end
+
+  def get_category_children
+    @children = Category.find_by(name: params[:parent_name], ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @grandchildren = Category.find(params[:child_id]).children
   end
 
   def create
@@ -48,16 +61,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def category
-    respond_to do |format|
-      format.html
-      format.json do
-       @children = Category.find(params[:parent_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
-  end
-  
   private
 
   def set_item
