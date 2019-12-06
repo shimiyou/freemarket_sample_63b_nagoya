@@ -3,22 +3,25 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy, :update]
   before_action :set_item_image, only: [:index, :show]
 
+
   def index
-    @items = Item.includes(:user)
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
     @item = Item.new
-    @item.item_images.build
-    @item.build_brand
+    @item_image = @item.item_images.build
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
+      params[:item_images]['image'].each do |a|
+        @item_image = @item.item_images.create!(image: a)
+      end
       redirect_to root_path
     else
-      render :new
+      render_to_string :new
     end
   end
 
@@ -77,7 +80,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :send_date_id,
       :price,
-      item_images_attributes: [:id, :image],
+      item_images_attributes: [:image],
       brand_attributes: [:id, :name]
     ).merge(user_id: current_user.id).to_h
   end
