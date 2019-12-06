@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :destroy]
-  before_action :set_item_image, only: [:show]
+  before_action :set_item, only: [:show, :edit, :destroy, :update]
+  before_action :set_item_image, only: [:index, :show]
+
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -31,11 +32,29 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @item.destroy
       redirect_to root_path
     else
       render :show
+    end
+  end
+
+  def category
+    respond_to do |format|
+      format.html
+      format.json do
+       @children = Category.find(params[:parent_id]).children
+       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
     end
   end
   
@@ -67,7 +86,8 @@ class ItemsController < ApplicationController
   end
 
   def set_all
-    @parents = Category.all.order("id ASC").limit(13)
+    @parents = Category.roots
+    @children = @parents.second.children
     @size = Size.all
     @state = State.all
     @postage_side = PostageSide.all
