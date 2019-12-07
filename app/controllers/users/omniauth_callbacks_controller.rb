@@ -13,11 +13,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_from(provider)
     provider = provider.to_s 
+    
     @user = User.from_omniauth(request.env['omniauth.auth']) 
     if @user.persisted? 
       sign_in @user
       redirect_to root_path
     else
+      session[:nickname] = @user.nickname
+      session[:email] = @user.email
       session[:password] = @user.password
       session[:password_confirmation] = @user.password
       session[:provider] = @user.provider
