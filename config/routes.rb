@@ -28,4 +28,8 @@ Rails.application.routes.draw do
       get "fin"
     end 
   end
+
+  resources :cards, only: [:create, :show, :new] 
+
 end
+
