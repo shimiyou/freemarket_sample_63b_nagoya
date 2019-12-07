@@ -3,22 +3,38 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy, :update]
   before_action :set_item_image, only: [:index, :show]
 
+
   def index
-    @items = Item.includes(:user)
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
     @item = Item.new
     @item.item_images.build
     @item.build_brand
+    @parents = ['---']
+    Category.where(ancestry: nil).each do |parent|
+      @parents << parent.name
+    end
+  end
+
+  def get_category_children
+    @children = Category.find_by(name: params[:parent_name], ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @grandchildren = Category.find(params[:child_id]).children
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
+      params[:item_images]['image'].each do |a|
+        @item.item_images.create!(image: a)
+      end
       redirect_to root_path
     else
-      render :new
+      render_to_string :new
     end
   end
 
@@ -45,6 +61,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def category
     respond_to do |format|
       format.html
@@ -55,6 +72,10 @@ class ItemsController < ApplicationController
     end
   end
   
+  def buy
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def set_item
@@ -77,7 +98,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :send_date_id,
       :price,
-      item_images_attributes: [:id, :image],
+      item_images_attributes: [:image],
       brand_attributes: [:id, :name]
     ).merge(user_id: current_user.id).to_h
   end

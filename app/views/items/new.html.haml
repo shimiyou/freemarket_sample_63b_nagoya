@@ -1,5 +1,5 @@
 -# 商品の出品画面
-.container
+.item_new_container
   
   .header
     = link_to root_path do
@@ -24,8 +24,16 @@
               ドラッグアンドドロップ
               %br
                 またはクリックしてファイルをダウンロード
-            = i.file_field :image, class: 'sell-form__upload__box__file'
-
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
       /商品
       .sell-main__form__container
         .sell-form__item__name
@@ -52,7 +60,7 @@
                 カテゴリー
                 %span.form-require
                   必須
-              = f.collection_select :category_id, @parents, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.select :category_id, @parents, {}, {class: 'form-select-2 form-style', id: 'parent_category'}
             .sell-form__item__detail__content__size
               %h4.form-title
                 サイズ

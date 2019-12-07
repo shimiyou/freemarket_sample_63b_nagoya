@@ -1,4 +1,4 @@
--# 商品の出品画面
+-# 商品の編集画面
 .container
   
   .header
@@ -24,8 +24,16 @@
               ドラッグアンドドロップ
               %br
                 またはクリックしてファイルをダウンロード
-            = i.file_field :image, class: 'sell-form__upload__box__file'
-
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
       /商品
       .sell-main__form__container
         .sell-form__item__name
