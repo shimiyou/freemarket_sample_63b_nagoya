@@ -9,8 +9,8 @@
     .item__page__data
       .item__page__data__photo-box
         .item__page__data__photo-box__photo
-        - @images.each do |image|
-          = image_tag image.image.url.to_s, class: "item__page__data__photo-box__photo__main"
+          - @images.each do |image|
+            = image_tag image.image.url.to_s, class: "item__page__data__photo-box__photo__main"
       %table.item__page__data__list
         %tr
           %th 出品者
@@ -33,7 +33,9 @@
         %tr
           %th ブランド
           %td
-            = link_to "サバス", "#" 
+            - if @item.brand.nil?
+            - else
+              = @item.brand.name
         %tr
           %th 商品の状態
           %td
@@ -102,75 +104,10 @@
       = fa_icon "twitter-square"
     = link_to "https://www.pinterest.jp/", class: "item__media__pinterest" do
       = fa_icon "pinterest-square"
-
   .item__user
-    = link_to "なかやまきんにくんさんのその他の商品", "#", style: "font-size:15pt;font-weight:bold;", class: "item__user__items"
-    .item__contents
-      .item__contents__content.clearfix
-        .item__contents__content__image
-          = image_tag "workout", class: "item__contents__content__image__photo"
-        .item__contents__content__details
-          
-          .item__contents__content__details__name
-            とてもいい商品です
-        .item__contents__content__price
-          ¥15,000
-          = fa_icon "heart", class: "item__contents__content__price__good"
-
-      .item__contents__content.clearfix
-        .item__contents__content__image
-          = image_tag "bodybuilder", class: "item__contents__content__image__photo"
-        .item__contents__content__details
-          
-          .item__contents__content__details__name
-            とてもいい商品です
-        .item__contents__content__price
-          ¥15,000
-          = fa_icon "heart", class: "item__contents__content__price__good"
-      .item__contents__content.clearfix
-        .item__contents__content__image
-          = image_tag "dumbbell", class: "item__contents__content__image__photo"
-        .item__contents__content__details
-          
-          .item__contents__content__details__name
-            とてもいい商品です
-        .item__contents__content__price
-          ¥15,000
-          = fa_icon "heart", class: "item__contents__content__price__good"
-  .item__user
-    = link_to "ダンベル (メンズ) その他の商品", "#", style: "font-size:15pt;font-weight:bold;", class: "item__user__items"
-    .item__contents
-      .item__contents__content.clearfix
-        .item__contents__content__image
-          = image_tag "workout", class: "item__contents__content__image__photo"
-        .item__contents__content__details
-          
-          .item__contents__content__details__name
-            とてもいい商品です
-        .item__contents__content__price
-          ¥15,000
-          = fa_icon "heart", class: "item__contents__content__price__good"
-
-      .item__contents__content.clearfix
-        .item__contents__content__image
-          = image_tag "bodybuilder", class: "item__contents__content__image__photo"
-        .item__contents__content__details
-          
-          .item__contents__content__details__name
-            とてもいい商品です
-        .item__contents__content__price
-          ¥15,000
-          = fa_icon "heart", class: "item__contents__content__price__good"
-      .item__contents__content.clearfix
-        .item__contents__content__image
-          = image_tag "dumbbell", class: "item__contents__content__image__photo"
-        .item__contents__content__details
-          
-          .item__contents__content__details__name
-            とてもいい商品です
-        .item__contents__content__price
-          ¥15,000
-          = fa_icon "heart", class: "item__contents__content__price__good"
+    = link_to "#{@item.user.nickname}さんのその他の商品", "#", style: "font-size:15pt;font-weight:bold;", class: "item__user__items"
+  %ul.item__contents
+    = render partial: "items/show_item"
   .item__bottom
     = link_to "メルカリ", "#", class: "item__bottom__home"
     .item__bottom__item

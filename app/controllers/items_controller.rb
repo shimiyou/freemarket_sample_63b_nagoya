@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
 
   def show
     @images = @item.item_images
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def edit
@@ -83,7 +84,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item_image
-    @item_images = ItemImage.all
+    @item_images = ItemImage.includes(:item)
   end
 
   def item_params
