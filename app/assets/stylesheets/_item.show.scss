@@ -33,25 +33,18 @@
         float: left;
         width: 300px;
         height: 420px;
-        overflow: scroll;
         &__photo {
-          
-          &__main {
-            min-width: 300px;
+            min-height: 300px;
+          &__image {
             max-width: 300px;
           }
         }
         &__photos {
-          &__first {
-            width: 60px;
-            height: 60px;
-          }
-          &__second {
-            width: 60px;
-            height: 60px;
+          &__main {
+            width: 55px;
+            height: 55px;
           }
         }
-        
       }
       &__list {
         width: 300px;

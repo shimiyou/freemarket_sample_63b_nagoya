@@ -9,8 +9,10 @@
     .item__page__data
       .item__page__data__photo-box
         .item__page__data__photo-box__photo
+          = image_tag @images.first.image.to_s, class: "item__page__data__photo-box__photo__image"
+        .item__page__data__photo-box__photos
           - @images.each do |image|
-            = image_tag image.image.url.to_s, class: "item__page__data__photo-box__photo__main"
+            = image_tag image.image.to_s, class: "item__page__data__photo-box__photos__main"
       %table.item__page__data__list
         %tr
           %th 出品者
