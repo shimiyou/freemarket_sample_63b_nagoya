@@ -5,9 +5,9 @@
       出品
     .main-page__send-btn__detail
       %i.fa.fa-camera.fa
-=render "items/header"
+=render partial: "items/header"
 .swiper-containers
-  = image_tag "D220-1.jpg",class:"swiper-containers__image"
+  = image_tag "grand-canyon-1839279_1920.jpg",class:"swiper-containers__image"
 .main-detail
   .main-detail__category
     .main-detail__category__title
@@ -25,7 +25,7 @@
   .main-detail__category-item
     .main-detail__category-item__title
       .main-detail__category-item__title__name
-        新着きんにく
+        新着アイテム
       =link_to "#",class:"main-detail__category-item__title__see-more" do
         もっと見る
     .main-detail__category-item__list
@@ -47,10 +47,10 @@
   .main-detail__bland-item
     .main-detail__bland-item__title
       .main-detail__bland-item__title__name
-        新着プロテイン
+        新着アイテム
       =link_to "#",class:"main-detail__bland-item__title__see-more" do
         もっと見る
     .main-detail__bland-item__list
       %ul.main-detail__bland-item__list__contents
         =render partial: "items/index-bland"
-=render "items/footer"
+=render partial: "items/footer"

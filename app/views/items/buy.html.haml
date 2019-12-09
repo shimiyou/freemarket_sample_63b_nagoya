@@ -1,51 +1,72 @@
--# 商品購入確認画面(仮)
-.container
+-# 商品購入確認画面
+.container__buy
   =render "users/new-header"
-  .buy
-    .buy__title
-      購入内容の確認
-    .buy__item
-      .buy__item__content
-        .buy__item__content__image
-        = image_tag "man.png", class: "buy__item__content__image__photo"
-        .buy__item__content__name
-          ダンベル
-      .buy__item__price
-        .buy__item__price__number
-          ¥100,000
-        .buy__item__price__postage
-          送料込み
-      .buy__item__point
-        ポイントはありません
-      .buy__item__total
-        .buy__item__total__pay
-          支払い金額
-        .buy__item__total__price
-          ¥100,000
-      .buy__item__red
-        = link_to "購入する","#"
-    .buy__delivery
-      .buy__delivery__text
-        配送先
-      .buy__delivery__user
-        .buy__delivery__user__postal-code
-          〒100-XXXX
-        .buy__delivery__user__address
-          東京都港区XXXXXXXXXXXXXX
-        .buy__delivery__user__name
-          なかやまきんにくん
-        .buy__delivery__user__edit
-          = link_to "変更する","#"
-    .buy__credit
-      .buy__credit__text
-        支払い方法
-      .buy__credit__user
-        .buy__credit__user__number
-          ************1111
-        .buy__credit__user__time-limit
-          08/20
-        .buy__credit__user__card
-          = image_tag "_JCB-512.png",class: "buy__credit__user__card"
-        .buy__credit__user__edit
-          = link_to "変更する","#"
+  .buy-main
+    .buy__main__item
+      .buy__main__item__head
+        購入内容の確認
+      .buy__main__item__buyitem
+        .buy__main__item__buyitem__inner
+          .buy__main__item__buyitem__inner__itembox
+            = image_tag @item.item_images.first.image.to_s, class: "buy__main__item__buyitem__inner__itembox__itemimage"
+            .buy__main__item__buyitem__inner__itembox__detail
+              .buy__main__item__buyitem__inner__itembox__detail__nameitem
+                = @item.name
+              .buy__main__item__buyitem__inner__itembox__detail__buyprice
+                .buy__main__item__buyitem__inner__itembox__detail__buyprice__pricebuy
+                  = converting_to_jpy(@item.price)
+                .buy__main__item__buyitem__inner__itembox__detail__buyprice__fee
+                  （税込）送料込み
+      .buy__main__item__buycash
+        .buy__main__item__buycash__cashinner
+          .buy__main__item__buycash__cashinner__buyform
+            .buy__main__item__buycash__cashinner__buyform__pricetable
+              .buy__main__item__buycash__cashinner__buyform__pricetable__celllabel
+                支払い金額
+              .buy__main__item__buycash__cashinner__buyform__pricetable__cellprice
+                = converting_to_jpy(@item.price)
+            .buy__main__item__buycash__cashinner__buyform__userinfo
+              .buy__main__item__buycash__cashinner__buyform__userinfo__buycard
+                .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__payment
+                  .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__payment__cardleft
+                    支払い方法
+                  .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__payment__cardright
+                    = link_to "変更する","#"
+                .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext
+                  .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctt
+                    クレジットカード
+                  .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctc
+                    - if @default_card_information.blank?
+                      %br /
+                    - else
+                      -#以下カード情報を表示
+                      **** **** **** #{@default_card_information.last4}
+                      - exp_month = @default_card_information.exp_month.to_s
+                      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                      = exp_month + " / " + exp_year
+                  .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctb
+                    **** **** **** #{@default_card_information.last4}
+                  .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctl
+                    有効期限 #{@default_card_information.exp_month.to_s} / #{@default_card_information.exp_year.to_s.slice(2,3)}
+                    .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctl__cardbrand
+                      ロゴ
+            .buy__main__item__buycash__cashinner__buyform__deli
+              .buy__main__item__buycash__cashinner__buyform__deli__delitext
+                .buy__main__item__buycash__cashinner__buyform__deli__delitext__delitop
+                  .buy__main__item__buycash__cashinner__buyform__deli__delitext__delitop__delileft
+                    配送先
+                  .buy__main__item__buycash__cashinner__buyform__deli__delitext__delitop__deliright
+                    = link_to "変更する","#"
+                .buy__main__item__buycash__cashinner__buyform__deli__delitext__deliadd
+                  .buy__main__item__buycash__cashinner__buyform__deli__delitext__deliadd__delivery
+                    .buy__main__item__buycash__cashinner__buyform__deli__delitext__deliadd__delivery__addt
+                      〒 #{current_user.address.postal_code}
+                    .buy__main__item__buycash__cashinner__buyform__deli__delitext__deliadd__delivery__addc
+                      #{current_user.address.prefecture.name}#{current_user.address.city}#{current_user.address.house_number} #{current_user.address.build_number}
+                    .buy__main__item__buycash__cashinner__buyform__deli__delitext__deliadd__delivery__addb
+                      = current_user.first_name
+                      = current_user.last_name
+            .buy__main__item__buycash__cashinner__buyform__buying
+              = form_tag(action: :pay, method: :post) do
+                %button.buy__main__item__buycash__cashinner__buyform__buying__buybtn 購入する
   =render "users/new-footer"

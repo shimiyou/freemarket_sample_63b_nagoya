@@ -62,8 +62,11 @@
             height: 60px;
             margin: 0 auto;
             border-radius: 50%;
-            background-image: url("/assets/mypage.icon.jpg");
+            &__image {
+              width: 60px;
+              height: 60px;
             }
+          }
           &__name {
             height: 19px;
             margin: 8px 0 0;
