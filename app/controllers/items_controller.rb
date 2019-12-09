@@ -15,10 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_brand
-    @parents = ['---']
-    Category.where(ancestry: nil).each do |parent|
-      @parents << parent.name
-    end
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def get_category_children
@@ -31,13 +28,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # category = Category.find_by(name: params[:category_id])
+    # @item[:category_id] = category.id
     if @item.save
       params[:item_images]['image'].each do |a|
         @item.item_images.create!(image: a)
       end
       redirect_to root_path
     else
-      render_to_string :new
+      render :new
     end
   end
 
@@ -131,8 +130,7 @@ class ItemsController < ApplicationController
   
 
   def set_all
-    @parents = Category.roots
-    @children = @parents.second.children
+    
     @size = Size.all
     @state = State.all
     @postage_side = PostageSide.all
