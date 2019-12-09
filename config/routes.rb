@@ -3,14 +3,12 @@ Rails.application.routes.draw do
   root to: 'items#index'
   resources :items, only: [:index, :new, :create, :show, :edit, :destroy, :update] do
     collection do
-
-      get "buy"
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      post "pay"
     end
     member do
       get "buy"
+      post "pay"
     end
   end
   resources :users, only: [:index,:new, :create, :edit, :show] do
