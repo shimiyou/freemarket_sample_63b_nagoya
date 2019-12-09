@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :destroy, :update]
+  before_action :set_item, only: [:show, :edit, :destroy, :update,:buy,:pay]
   before_action :set_item_image, only: [:index, :show]
+  before_action :set_card, only: [:buy, :pay]
+  
+  require 'payjp'
 
 
   def index
@@ -74,8 +77,31 @@ class ItemsController < ApplicationController
   end
   
   def buy
-    @item = Item.find(params[:id])
+    @user = User.find(params[:id])
+    @address_info = current_user.address.prefecture.name + current_user.address.city + current_user.address.house_number + current_user.address.build_number
+    @full_name = current_user.last_name + current_user.first_name
+    if  @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
+
+  def pay
+
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+    )
+    redirect_to root_path #完了画面に移動
+  end
+
+
+
 
   private
 
@@ -103,6 +129,7 @@ class ItemsController < ApplicationController
       brand_attributes: [:id, :name]
     ).merge(user_id: current_user.id).to_h
   end
+  
 
   def set_all
     @parents = Category.roots
@@ -114,4 +141,9 @@ class ItemsController < ApplicationController
     @prefecture = Prefecture.all
     @send_date = SendDate.all
   end
+  def set_card
+    @card = current_user.cards.first
+  end
+
+ 
 end
