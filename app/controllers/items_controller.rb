@@ -77,7 +77,6 @@ class ItemsController < ApplicationController
   end
   
   def buy
-    @user = User.find(params[:id])
     @address_info = current_user.address.prefecture.name + current_user.address.city + current_user.address.house_number + current_user.address.build_number
     @full_name = current_user.last_name + current_user.first_name
     if  @card.blank?
