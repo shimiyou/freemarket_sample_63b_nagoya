@@ -111,9 +111,8 @@
   %ul.item__contents
     = render partial: "items/show_item"
   .item__bottom
-    = link_to "メルカリ", "#", class: "item__bottom__home"
     .item__bottom__item
-      ＞ダンベル
+      =render 'shared/breadcrumbs'
 
 -# フッター
 = render "items/footer"

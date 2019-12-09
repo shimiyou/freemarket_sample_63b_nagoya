@@ -1,4 +1,4 @@
-パンくずのファイル
+-# パンくずのファイル
 - case params.values_at :controller, :action
 
 - when ['users', 'show']
@@ -12,5 +12,8 @@
 
 - when ['users', 'logout']
   - breadcrumb :user_logout
+
+- when ['items', 'show']
+  - breadcrumb :item_path
 
 = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
