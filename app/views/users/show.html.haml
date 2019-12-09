@@ -11,9 +11,9 @@
       = link_to "#" do
         .mypage-main__right__user__main
           .mypage-main__right__user__main__icon
-            .mypage-main__right__user__main__icon__image
+            = image_tag "iconmonstr-user-5-240.png",class:"mypage-main__right__user__main__icon__image"
           .mypage-main__right__user__main__name
-            おさるさん
+            = current_user.nickname
           .mypage-main__right__user__main__count
             評価 0   出品数 0
             .mypage-main__right__user__main__count__action
