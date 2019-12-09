@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :destroy, :update]
+  before_action :set_item, only: [:show, :edit, :destroy, :update,:buy]
   before_action :set_item_image, only: [:index, :show]
   
   require 'payjp'
@@ -76,7 +76,6 @@ class ItemsController < ApplicationController
   
   def buy
     @user = User.find(params[:id])
-    @item = Item.find(params[:id])
     card = Card.find_by(user_id: current_user.id)
     @address_info = current_user.address.prefecture.name + current_user.address.city + current_user.address.house_number + current_user.address.build_number
     @full_name = current_user.last_name + current_user.first_name
