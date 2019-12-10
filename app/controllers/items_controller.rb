@@ -104,8 +104,6 @@ class ItemsController < ApplicationController
   end
 
   def set_all
-    @parents = Category.roots
-    @children = @parents.second.children
     @size = Size.all
     @state = State.all
     @postage_side = PostageSide.all
