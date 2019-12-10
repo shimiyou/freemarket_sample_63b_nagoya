@@ -130,7 +130,6 @@ class ItemsController < ApplicationController
   
 
   def set_all
-    
     @size = Size.all
     @state = State.all
     @postage_side = PostageSide.all

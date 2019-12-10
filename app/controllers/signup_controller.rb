@@ -27,6 +27,8 @@ class SignupController < ApplicationController
 
   def create
     @user = User.new(user_params_a)
+    @user.provider = session[:provider]
+    @user.uid = session[:uid]
     if @user.save!
       session[:user_id] = @user.id
       sign_in User.find(@user.id) unless user_signed_in?

@@ -1,6 +1,24 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
+
+#   def create
+#     @user = User.new(
+#       provider: session[:provider], 
+#       uid: session[:uid],
+#     )
+#     if @user.save
+#       # ログインするための情報を保管
+#       session[:id] = @user.id
+#       redirect_to done_signup_index_path
+#     else
+#       render '/signup/registration'
+#     end
+#   def done
+#     sign_in User.find(session[:id]) unless user_signed_in?
+#   end
+# end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
