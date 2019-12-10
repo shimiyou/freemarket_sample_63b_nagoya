@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       post "pay"
     end
   end
-  resources :users, only: [:index,:new, :create, :edit, :show] do
+  resources :users, only: [:index,:new, :edit, :show] do
     collection do
       get "logout"
       get "check"
