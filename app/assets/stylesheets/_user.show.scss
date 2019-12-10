@@ -47,7 +47,7 @@
         width: 660px;
         height: 160px;
         padding: 20px;
-        background-image: url("/assets/mypage.jpg");
+        background-image: url("mypage.jpg");
         &__main {
           width: 660px;
           height: 111px;
@@ -64,6 +64,7 @@
             &__image {
               width: 60px;
               height: 60px;
+              background-image: url("mypage.jpg");
             }
           }
           &__name {
