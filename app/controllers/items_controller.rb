@@ -97,7 +97,7 @@ class ItemsController < ApplicationController
     )
     redirect_to root_path #完了画面に移動
   end
-
+  
 
 
 

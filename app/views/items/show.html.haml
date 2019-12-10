@@ -31,7 +31,9 @@
         %tr
           %th カテゴリー
           %td
-            = @item.category.name
+            - if @item.category.nil?
+            - else
+              = @item.category.name
         %tr
           %th ブランド
           %td
