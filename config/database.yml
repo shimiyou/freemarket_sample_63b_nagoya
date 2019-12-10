@@ -53,4 +53,4 @@ production:
   # 本番環境のmysqlに合わせる
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
