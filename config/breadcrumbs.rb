@@ -22,3 +22,9 @@ crumb :user_logout do
   link 'ログアウト', user_path(current_user.id)
   parent :user_show
 end
+
+crumb :item_path do
+  @item = Item.find(params[:id])
+  link @item.name, item_path
+  parent :root
+end

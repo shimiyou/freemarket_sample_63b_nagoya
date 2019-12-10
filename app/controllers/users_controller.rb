@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -18,4 +19,5 @@ class UsersController < ApplicationController
 
   def check
   end
+  
 end

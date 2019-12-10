@@ -12,28 +12,22 @@
     = form_for @item, url: items_path, method: :post do |f|
       /画像
       .sell-main__form__container
+        %h3.sell-form__upload__title
+          出品画像
+          %span.form-require
+            必須
+        %p.sell-form__upload__text
+          最大10枚までアップロードできます
         = f.fields_for :item_images do |i|
-          %h3.sell-form__upload__title
-            出品画像
-            %span.form-require
-              必須
-          %p.sell-form__upload__text
-            最大10枚までアップロードできます
-          = i.label :image, class: 'sell-form__upload__box' do
-            %p.sell-form__upload__box__text
-              ドラッグアンドドロップ
-              %br
-                またはクリックしてファイルをダウンロード
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
-            = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+          .upload_box
+            = i.label :image, class: 'sell-form__upload__box' do
+              %p.sell-form__upload__box__text
+                ドラッグアンドドロップ
+                %br
+                  またはクリックしてファイルをダウンロード
+              = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+              = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
+              = i.file_field :image, multiple: true, type: 'file', name: "item_images[image][]", class: 'sell-form__upload__box__file'
       /商品
       .sell-main__form__container
         .sell-form__item__name
@@ -60,7 +54,7 @@
                 カテゴリー
                 %span.form-require
                   必須
-              = f.select :category_id, @parents, {}, {class: 'form-select-2 form-style', id: 'parent_category'}
+              = f.collection_select :category_id, @parents, :id, :name, {prompt: '---'}, {class: 'form-select-2 form-style', id: 'parent_category'}
             .sell-form__item__detail__content__size
               %h4.form-title
                 サイズ
@@ -132,7 +126,7 @@
                 %span.yen-mark
                   ¥
                 %span
-                  = f.text_field :price, placeholder: "例）300", class: 'sell-form__price--right__price__input form-style'
+                  = f.text_field :price, placeholder: "例）300", class: 'sell-form__price--right__price__input form-style', id: "price"
             .sell-form__price--right__fee
               %p.sell-form__price--right__fee--left
                 販売手数料(10%)

@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_all, only: [:index, :new, :create, :show, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :destroy, :update]
+  before_action :set_item, only: [:show, :edit, :destroy, :update,:buy,:pay]
   before_action :set_item_image, only: [:index, :show]
+  before_action :set_card, only: [:buy, :pay]
+  
+  require 'payjp'
 
 
   def index
@@ -12,10 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_brand
-    @parents = ['---']
-    Category.where(ancestry: nil).each do |parent|
-      @parents << parent.name
-    end
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def get_category_children
@@ -28,18 +28,21 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # category = Category.find_by(name: params[:category_id])
+    # @item[:category_id] = category.id
     if @item.save
       params[:item_images]['image'].each do |a|
         @item.item_images.create!(image: a)
       end
       redirect_to root_path
     else
-      render_to_string :new
+      render :new
     end
   end
 
   def show
     @images = @item.item_images
+    @items = Item.includes(:user)
   end
 
   def edit
@@ -73,8 +76,30 @@ class ItemsController < ApplicationController
   end
   
   def buy
-    @item = Item.find(params[:id])
+    @address_info = current_user.address.prefecture.name + current_user.address.city + current_user.address.house_number + current_user.address.build_number
+    @full_name = current_user.last_name + current_user.first_name
+    if  @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
+
+  def pay
+
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+    )
+    redirect_to root_path #完了画面に移動
+  end
+
+
+
 
   private
 
@@ -83,7 +108,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item_image
-    @item_images = ItemImage.all
+    @item_images = ItemImage.includes(:item)
   end
 
   def item_params
@@ -102,6 +127,7 @@ class ItemsController < ApplicationController
       brand_attributes: [:id, :name]
     ).merge(user_id: current_user.id).to_h
   end
+  
 
   def set_all
     @size = Size.all
@@ -111,4 +137,9 @@ class ItemsController < ApplicationController
     @prefecture = Prefecture.all
     @send_date = SendDate.all
   end
+  def set_card
+    @card = current_user.cards.first
+  end
+
+ 
 end
