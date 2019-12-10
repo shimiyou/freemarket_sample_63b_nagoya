@@ -6,7 +6,7 @@
 
 //右側ユーザー名
 .mypage-main
-  .container
+  .cotent-u
     .content-user
       .user-info
         %h2.user-info__header
@@ -24,23 +24,25 @@
           %h4.form-title
             お名前
           %p.user-info-p
-            シェイン コス 
+            = current_user.first_name
+            = current_user.last_name
 
           %h4.form-title
             お名前カナ
           %p.user-info-p
-            ケン コスギ
+            = current_user.first_name_kana
+            = current_user.last_name_kana
 
           %h4.form-title
             生年月日
           %p.user-info-p
-            2000/01/01
+            = current_user.birthday
 
           %h4.form-title
             郵便番号
             %span.form-arbitrary
               任意
-          %input{placeholder: "例）1234567", class: 'form-size form-style'}
+          %input{placeholder: "例）1234567", class: 'form-size form-style', value: session[:last_name]}
 
           %h4.form-title
             都道府県
