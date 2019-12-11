@@ -10,9 +10,16 @@
       .item__page__data__photo-box
         .item__page__data__photo-box__photo
           = image_tag @images[0].image.to_s, class: "item__page__data__photo-box__photo__image"
-        .item__page__data__photo-box__photos
-          - @images.each do |image|
-            = image_tag image.image.to_s, class: "item__page__data__photo-box__photos__main"
+          - if @item.purchaser_id.present?
+            .item__page__data__photo-box__photo__image__sold
+              .item__page__data__photo-box__photo__image__sold__inner
+                SOLD
+            .item__page__data__photo-box__photos
+              - @images.each do |image|
+                = image_tag image.image.to_s, class: "item__page__data__photo-box__photos__main"
+          - else
+            - @images.each do |image|
+              = image_tag image.image.to_s, class: "item__page__data__photo-box__photos__main"
       %table.item__page__data__list
         %tr
           %th 出品者
@@ -71,7 +78,9 @@
     - if user_signed_in? && current_user.id == @item.user_id
       = link_to "商品の編集", edit_item_path, class: "item__page__buy"
       = link_to "商品の削除", item_path(@item.id), method: :delete, class: "item__page__delete"
-    - elsif user_signed_in?
+    - elsif user_signed_in? && @item.purchaser_id.present?
+      = link_to "この商品は売り切れました", root_path, class: "item__page__delete"
+    - elsif user_signed_in? 
       = link_to "購入画面に進む", buy_item_path(@item.id), class: "item__page__buy"
     - else
       = link_to "購入にはログインが必要です", new_user_session_path, class: "item__page__delete"
