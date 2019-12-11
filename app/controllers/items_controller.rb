@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy, :update,:buy,:pay]
   before_action :set_item_image, only: [:index, :show]
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_item_category, only: [:new,:create]
+  before_action :set_item_category, only: [:new,:create,:edit,:update]
   require 'payjp'
 
 
