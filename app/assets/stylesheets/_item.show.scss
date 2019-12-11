@@ -34,12 +34,35 @@
         width: 300px;
         height: 420px;
         &__photo {
-            min-height: 305px;
+            height: 300px;
+            width: 300px;
           &__image {
-            max-width: 300px;
+            height: 300px;
+            width: 300px;
+            &__sold{
+              width: 0;
+              height: 0;
+              border-top: 60px solid #ea352d ;
+              border-right: 60px solid transparent;
+              border-bottom: 60px solid transparent;
+              border-left: 60px solid #ea352d ;
+              z-index:100;
+              position: relative;
+              top:-302px;
+              &__inner{
+                transform: rotate(-45deg);
+                font-size: 25px;
+                margin:-28px 0px 0px -55px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
           }
         }
         &__photos {
+          position: relative;
+          top:-115px;
           &__main {
             width: 55px;
             height: 55px;
