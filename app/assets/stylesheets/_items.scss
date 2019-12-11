@@ -7,7 +7,7 @@
     z-index: 3;
     bottom:30px;
     right: 30px;
-    background-color: red;
+    background-color: #ea352d;
     color: white;
     height: 160px;
     width: 160px;
@@ -86,7 +86,7 @@
             font-weight: bold;
 
             .fa.fa-list-alt{
-              color: red;
+              color: #ea352d;
             }
 
           }
@@ -97,7 +97,7 @@
             font-weight: bold;
 
             .fa.fa-ellipsis-v{
-              color: red;
+              color: #ea352d;
             }
           }
         }
@@ -148,8 +148,8 @@
           &__entry{
           height: 20px;
           width: 80px;
-          border: solid 1px red;
-          background-color: red;
+          border: solid 1px #ea352d;
+          background-color: #ea352d;
           color: white;
           line-height: 20px;
           text-align: center;
