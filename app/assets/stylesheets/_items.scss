@@ -255,6 +255,7 @@
                 &__image{
                   position: relative;
                   pointer-events: none;
+                  height: 186px;
                   .image{
                     width: 180px;
                     height: 180px;
@@ -291,6 +292,8 @@
                     pointer-events: none;
                   }
                   &__sold{
+                    position: absolute;
+                    top:-187px;
                     width: 0;
                     height: 0;
                     border-top: 55px solid #ea352d ;
@@ -299,8 +302,7 @@
                     border-left: 55px solid #ea352d ;
                     z-index:100;
                     position: relative;
-                    top:111px;
-                    left:1px;
+                    
                     &__inner{
                       transform: rotate(-45deg);
                       font-size: 20px;

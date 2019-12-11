@@ -34,6 +34,8 @@ class ItemsController < ApplicationController
       end
       redirect_to root_path
     else
+      @item.item_images.build
+      @item.build_brand
       render :new
     end
   end
