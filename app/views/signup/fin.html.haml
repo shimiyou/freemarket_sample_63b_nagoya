@@ -12,13 +12,15 @@
     .end__text__ending
       会員登録が完了しました。
     .end__text__go
-      = link_to "メルカリをはじめる",root_path, class: "end__text__go__home"
+      = link_to "フリマをはじめる",root_path, class: "end__text__go__home"
   .end__image
-    .end__image__simple
+    = image_tag "moon-2092807.jpg", class:"end__image__back"
+  .end__bottom
+    .end__bottom__app
       スマホでかんたんフリマアプリ
-    .end__image__downlord
+    .end__bottom__downlord
       今すぐ無料ダウンロード！
-    = image_tag "logo_red.png", class: "end__image__logo"
-    = image_tag "image-apple.png", class: "end__image__app-store"
-    = image_tag "google-play-badge.png", class: "end__image__google-play"
-=render "users/new-footer"
+    = image_tag "logo_red.png", class: "end__bottom__logo"
+    = image_tag "image-apple.png", class: "end__bottom__app-store"
+    = image_tag "google-play-badge.png", class: "end__bottom__google-play"
+    =render "users/new-footer"
