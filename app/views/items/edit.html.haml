@@ -1,5 +1,5 @@
 -# 商品の編集画面
-.container
+.item_new_container
   
   .header
     = link_to root_path do
@@ -60,7 +60,7 @@
                 カテゴリー
                 %span.form-require
                   必須
-              = f.collection_select :category_id, @parents, :id, :name, {prompt: '---'}, {class: 'form-select form-style'}
+              = f.select :category_id, @parents,  {}, {class: 'form-select-2 form-style', id: 'parent_category'}
             .sell-form__item__detail__content__size
               %h4.form-title
                 サイズ
@@ -181,4 +181,4 @@
     = link_to '#' do
       = image_tag 'logo_gray.png', class: 'footer__logo'
     .footer__c
-      ©︎ 2019 Mercari
+      ©︎ 2019 Fmarket
