@@ -17,6 +17,7 @@ class SignupController < ApplicationController
         password: session[:password_confirmation],
         password_confirmation: session[:password_confirmation]
       )
+      @sns = session[:uid]
     else
       @user = User.new
     end
