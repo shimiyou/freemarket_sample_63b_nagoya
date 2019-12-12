@@ -34,7 +34,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 7, maximum: 128}
   validates :birthday, presence: true
   validates :last_name_kana, :first_name_kana, presence: true, format: { with: /\A[ア-ン゛゜ァ-ォャ-ョー「」、]+\z/}
-  validates :last_name, :first_name, presence: true, format: { with: /\A[一-龥ぁ-ん]/}
+  validates :last_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠]+\z/}
   # phone_number入力項目
   validates :phone_number, presence: true,uniqueness: true,numericality: {only_integer: true}
 end
