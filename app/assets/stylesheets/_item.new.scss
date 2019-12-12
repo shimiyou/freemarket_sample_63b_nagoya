@@ -310,21 +310,21 @@
   cursor: pointer;
 }
 
-select{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
+// select{
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+// }
    
-select::-ms-expand{
-  display: none;
-}
+// select::-ms-expand{
+//   display: none;
+// }
 
 .select-form {
   position: relative;
 }
 
-.select-form-font {
+.select-form-icon {
   position: absolute;
-  
+  color: gray;
 }
