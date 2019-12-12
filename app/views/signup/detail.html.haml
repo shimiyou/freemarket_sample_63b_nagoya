@@ -28,16 +28,19 @@
                 %ul.error
                   - errors.each do |error|
                     %li=error
-        .content__password
-          %label パスワード
-          %span.form-require 必須
-          = f.password_field :password, placeholder: "7文字以上",class: "input-default"
-          - if @user.errors.any?
-            - unless @user.valid?
-              - if errors = @user.errors.full_messages_for(:password)
-                %ul.error
-                  - errors.each do |error|
-                    %li=error
+        - if @sns
+          = hidden_field_tag :sns_auth, true
+        - else
+          .content__password
+            %label パスワード
+            %span.form-require 必須
+            = f.password_field :password, placeholder: "7文字以上",class: "input-default",autocomplete: "off"
+            - if @user.errors.any?
+              - unless @user.valid?
+                - if errors = @user.errors.full_messages_for(:password)
+                  %ul.error
+                    - errors.each do |error|
+                      %li=error
         .content__confirm
           %h3 本人確認
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
