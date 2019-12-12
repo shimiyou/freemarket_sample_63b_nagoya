@@ -121,7 +121,7 @@
     &__go {
       width: 400px;
       height: 50px;
-      background-color:red;
+      background-color:#ea352d;
       line-height: 50px;
       margin: 40px auto 0;
       font-size: 18px;
@@ -134,29 +134,36 @@
     height: 250px;
     margin-right: auto;
     margin-left : auto;
-    background-image: url("/assets/D220-1.jpg");
-    &__simple {
-      font-size: 20px;
+    &__back{
+      width: 700px;
+      height: 250px;
+    }
+  }
+  &__bottom {
+    width: 700px;
+    margin-right: auto;
+    margin-left : auto;
+    text-align: center;
+    position: relative;
+    top: -200px;
+    &__app {
+      font-size: 30px;
       color: #fff;
       font-weight: 580;
-      padding: 40px 0 0 80px;
-
     }
     &__downlord {
       font-size: 30px;
       color: #fff;
-      font-weight: 580;
-      padding: 20px 0 0 40px;
+      font-weight: 580;      
     }
     &__logo {
       height: 50px;
       width: 45px;
-      padding: 15px 0 0 40px;
+      padding: 15px 0 0 40px; 
     }
     &__app-store {
       height: 40px;
-      padding: 0 0 10px 20px;
-
+      padding: 0 0 10px 20px;    
     }
     &__google-play {
       height: 60px;

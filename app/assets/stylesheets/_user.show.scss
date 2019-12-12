@@ -2,7 +2,6 @@
 .html, body {
   height: 100%;
   width: 100%;
-  background: #f5f5f5;
   padding-bottom: 40px;
   a {
     text-decoration: none;
@@ -47,8 +46,7 @@
       &__user {
         width: 660px;
         height: 160px;
-        padding: 20px;
-        background-image: url("/assets/mypage.jpg");
+        padding: 0 0 20px 0;
         &__main {
           width: 660px;
           height: 111px;

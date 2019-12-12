@@ -11,7 +11,7 @@
         .content__nickname
           %label  ニックネーム
           %span.form-require 必須
-          =f.text_field :nickname, placeholder: "例) 僧帽筋太郎", class: "input-default"
+          =f.text_field :nickname, placeholder: "例) フリマ太郎", class: "input-default"
           - if @user.errors.any?
             - unless @user.valid?
               - if errors = @user.errors.full_messages_for(:nickname)
