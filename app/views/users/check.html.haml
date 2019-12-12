@@ -42,32 +42,35 @@
             郵便番号
             %span.form-arbitrary
               任意
-          %input{placeholder: "例）1234567", class: 'form-size form-style'}
+          %textarea{placeholder: "例）1234567", class: 'form-size form-style'}
+            = current_user.address.postal_code
 
           %h4.form-title
             都道府県
             %span.form-arbitrary
               任意
           %select{class: 'form-select form-style'}
-            %option --
 
           %h4.form-title
             市区町村
             %span.form-arbitrary
               任意
-          %input{placeholder: "例)横浜市緑区", class: 'form-size form-style'}
+          %textarea{placeholder: "例)横浜市緑区", class: 'form-size form-style'}
+            = current_user.address.city
 
           %h4.form-title
             番地
             %span.form-arbitrary
               任意
-          %input{placeholder: "例)青山1-1-1", class: 'form-size form-style'}
+          %textarea{placeholder: "例)青山1-1-1", class: 'form-size form-style'}
+            = current_user.address.house_number
 
           %h4.form-title
             建物名
             %span.form-arbitrary
               任意
-          %input{placeholder: "例)柳ビル103", class: 'form-size form-style'}
+          %textarea{placeholder: "例)柳ビル103", class: 'form-size form-style'}
+            = current_user.address.build_number
 
           %button.red-btn
             登録する

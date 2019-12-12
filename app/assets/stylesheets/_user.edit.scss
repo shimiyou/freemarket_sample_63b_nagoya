@@ -55,13 +55,13 @@
         height: 60px;
         padding: 72px 16px 24px;
         display: flex;
+        margin-top: -185px;
         &__icon {
           overflow: hidden;
           width: 60px;
           height: 60px;
           margin-left: auto;
           border-radius: 50%;
-          background-image: url("mypage.jpg");
           }
         &__nickname {
           width: 186px;
