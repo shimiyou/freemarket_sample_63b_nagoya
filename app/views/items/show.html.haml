@@ -75,12 +75,15 @@
         (税込)
       .item__page__price__postage
         送料込み
-    - if user_signed_in? && current_user.id == @item.user_id
+    - if user_signed_in? && current_user.id == @item.user_id && @item.purchaser_id.present?
+      = link_to "この商品は売り切れました", root_path, class: "item__page__delete"
+      = link_to "商品の削除", item_path(@item.id), method: :delete, class: "item__page__delete"
+    - elsif user_signed_in? && current_user.id == @item.user_id
       = link_to "商品の編集", edit_item_path, class: "item__page__buy"
       = link_to "商品の削除", item_path(@item.id), method: :delete, class: "item__page__delete"
     - elsif user_signed_in? && @item.purchaser_id.present?
       = link_to "この商品は売り切れました", root_path, class: "item__page__delete"
-    - elsif user_signed_in? 
+    - elsif user_signed_in?
       = link_to "購入画面に進む", buy_item_path(@item.id), class: "item__page__buy"
     - else
       = link_to "購入にはログインが必要です", new_user_session_path, class: "item__page__delete"
