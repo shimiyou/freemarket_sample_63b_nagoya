@@ -10,10 +10,12 @@
   .mypage-main__profile
     .mypage-main__profile__head
       プロフィール
+    = image_tag "mypage.jpg"
     .mypage-main__profile__name
       .mypage-main__profile__name__icon
         = image_tag "iconmonstr-user-5-240.png",class:"mypage-main__right__user__main__icon__image"
       %textarea{class:"mypage-main__profile__name__nickname",placeholder:"例)AYA☆セール中"}
+        = current_user.nickname
     .mypage-main__profile__input
       %textarea{class:"mypage-main__profile__input__text",placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
       = link_to "#" do
