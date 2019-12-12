@@ -6,5 +6,9 @@
           = image_tag item.item_images.first.image.url.to_s,class:"image"
           .main-detail__bland-item__list__contents__detail__content__aline__image__fee
             = converting_to_jpy(item.price)
+          -if item.purchaser_id.present?
+            .main-detail__category-item__list__contents__detail__content__aline__sold
+              .main-detail__category-item__list__contents__detail__content__aline__sold__inner
+                SOLD
         .main-detail__bland-item__list__contents__detail__content__aline__text
           = item.name

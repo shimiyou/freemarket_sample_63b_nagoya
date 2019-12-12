@@ -130,7 +130,7 @@ width:100%;
              margin-right: 10px;
            }
            &__must{
-             background-color: red;
+             background-color: #ea352d;
              color:white;  
              font-size:12px;
              padding:2px 4px;  
@@ -210,7 +210,7 @@ width:100%;
              }
              .form-require{
                
-               background-color: red;
+               background-color: #ea352d;
                color:white;  
                font-size:12px;
                padding:5px;  
@@ -252,7 +252,7 @@ width:100%;
              margin-right: 10px;
            }
            &__must{
-             background-color: red;
+             background-color: #ea352d;
              color:white;  
              font-size:12px;
              padding:2px 4px;  
@@ -279,7 +279,7 @@ width:100%;
             width: 100%;
             margin-top: 40px;
             height: 50px;
-            background-color: red;
+            background-color: #ea352d;
             color: #FFFFFF;
             cursor: pointer;
             position: absolute;
@@ -296,10 +296,9 @@ width:100%;
 .user-footer{
  width: 100%;
  background-color:#eeeeee;
- height: 180px;
+ height: 300px;
  text-align: center;
  padding: 67px 0 0;
- position: absolute;
  &__contents{
    font-size: 12px;
    &__terms{

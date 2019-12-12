@@ -2,7 +2,7 @@
   %li.item__contents__content
     =link_to item_path(item.id) do
       .item__contents__content__image
-        = image_tag item.item_images.first.image.url.to_s, class: "item__contents__content__image__photo"
+        = image_tag item.item_images[0].image.url.to_s, class: "item__contents__content__image__photo"
       .item__contents__content__details
         .item__contents__content__details__name
           = item.name

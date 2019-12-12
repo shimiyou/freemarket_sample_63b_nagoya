@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :destroy, :update,:buy,:pay]
   before_action :set_item_image, only: [:index, :show]
   before_action :set_card, only: [:buy, :pay]
-  
+  before_action :set_item_category, only: [:new,:create,:edit,:update]
   require 'payjp'
 
 
@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_brand
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def get_category_children
@@ -28,14 +27,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # category = Category.find_by(name: params[:category_id])
-    # @item[:category_id] = category.id
+
     if @item.save
       params[:item_images]['image'].each do |a|
         @item.item_images.create!(image: a)
       end
       redirect_to root_path
     else
+      @item.item_images.build
+      @item.build_brand
       render :new
     end
   end
@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path(@item)
     else
-      render :edit
+      render_to_string new_item_path
     end
   end
 
@@ -88,18 +88,20 @@ class ItemsController < ApplicationController
   end
 
   def pay
-
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
     )
-    redirect_to root_path #完了画面に移動
+    redirect_to done_item_path #完了画面に移動
   end
 
-
-
+  def done
+    @item = Item.find(params[:id])
+    @item.update( purchaser_id: current_user.id)
+    redirect_to root_path
+  end
 
   private
 
@@ -124,10 +126,10 @@ class ItemsController < ApplicationController
       :send_date_id,
       :price,
       item_images_attributes: [:image],
-      brand_attributes: [:id, :name]
-    ).merge(user_id: current_user.id).to_h
+      brand_attributes: [:id, :name],
+      
+    ).merge(user_id: current_user.id)
   end
-  
 
   def set_all
     @size = Size.all
@@ -140,6 +142,12 @@ class ItemsController < ApplicationController
   def set_card
     @card = current_user.cards.first
   end
-
- 
+  def set_item_category
+    #セレクトボックスの初期値設定
+    @parents = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @parents << parent.name
+    end
+  end
 end

@@ -91,64 +91,67 @@
 }
 
 .single{
-  width: 700px;
-  margin: 0 auto;
-  background-color: #fff;
-  &__container{
-    h2{
-      font-size: 22px;
-      padding: 32px;
-      text-align: center;
-      line-height: 1.4;
-      font-weight: bold;
-    }
-  }
-  &__content{
-     width:343px;
-     margin:0 auto;
-     padding-bottom: 60px;
-    &__groupform{
-    margin-top:24px;
-    }
-      label{
-        font-weight:600;
-        border-radius: 3px 3px 3px 3px;
-        padding-left:5px;
-      }
-      
-      .form-require{
-        background-color: red;
-        color:white;  
-        font-size:12px;
-        padding:2px 4px;  
-        border-radius: 7px 7px 7px 7px;
-        padding-left:5px;
-      }
-      .input-default{
-        width:100%;
-        margin-top:8px;
-        height:48px;
-        border-radius: 7px 7px 7px 7px;
-        padding-left:5px;
-      }
-      .next{
-        margin-top:24px;
-        display:block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        cursor: pointer;
+  background-color:#eeeeee;
+  &__address{
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    &__container{
+      h2{
+        font-size: 22px;
+        padding: 32px;
         text-align: center;
-        background: red;
-        color:white;
+        line-height: 1.4;
+        font-weight: bold;
       }
-      .norequire{
-        background-color: gray;
-         color:white;  
-         font-size:12px;
-         padding:2px 4px;  
-         border-radius: 7px 7px 7px 7px;
-         padding-left:5px;
+    }
+    &__content{
+       width:343px;
+       margin:0 auto;
+       padding-bottom: 60px;
+      &__groupform{
+      margin-top:24px;
+      }
+        label{
+          font-weight:600;
+          border-radius: 3px 3px 3px 3px;
+          padding-left:5px;
+        }
+        
+        .form-require{
+          background-color: #ea352d;
+          color:white;  
+          font-size:12px;
+          padding:2px 4px;  
+          border-radius: 7px 7px 7px 7px;
+          padding-left:5px;
+        }
+        .input-default{
+          width:100%;
+          margin-top:8px;
+          height:48px;
+          border-radius: 7px 7px 7px 7px;
+          padding-left:5px;
+        }
+        .next{
+          margin-top:24px;
+          display:block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+          background: #ea352d;
+          color:white;
+        }
+        .norequire{
+          background-color: gray;
+           color:white;  
+           font-size:12px;
+           padding:2px 4px;  
+           border-radius: 7px 7px 7px 7px;
+           padding-left:5px;
+        }
       }
   }    
 }

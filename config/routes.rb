@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     end
     member do
       get "buy"
+      get 'done'
       post "pay"
     end
   end
-  resources :users, only: [:index,:new, :create, :edit, :show] do
+  resources :users, only: [:index,:new, :edit, :show] do
     collection do
       get "logout"
       get "check"
@@ -25,5 +26,5 @@ Rails.application.routes.draw do
       get "fin"
     end 
   end
-  resources :cards, only: [:create, :show, :new] 
+  resources :cards, only: [:create, :new] 
 end

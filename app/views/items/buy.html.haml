@@ -39,17 +39,10 @@
                     - if @default_card_information.blank?
                       %br /
                     - else
-                      -#以下カード情報を表示
-                      **** **** **** #{@default_card_information.last4}
-                      - exp_month = @default_card_information.exp_month.to_s
-                      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                      = exp_month + " / " + exp_year
                   .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctb
                     **** **** **** #{@default_card_information.last4}
                   .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctl
                     有効期限 #{@default_card_information.exp_month.to_s} / #{@default_card_information.exp_year.to_s.slice(2,3)}
-                    .buy__main__item__buycash__cashinner__buyform__userinfo__buycard__cardtext__ctl__cardbrand
-                      ロゴ
             .buy__main__item__buycash__cashinner__buyform__deli
               .buy__main__item__buycash__cashinner__buyform__deli__delitext
                 .buy__main__item__buycash__cashinner__buyform__deli__delitext__delitop
