@@ -1,10 +1,18 @@
 -# トップページ
-=link_to new_item_path do
-  .main-page__send-btn
-    .main-page__send-btn__name
-      出品
-    .main-page__send-btn__detail
-      %i.fa.fa-camera.fa
+- if user_signed_in?
+  =link_to new_item_path do
+    .main-page__send-btn
+      .main-page__send-btn__name
+        出品
+      .main-page__send-btn__detail
+        %i.fa.fa-camera.fa
+- else
+  =link_to new_user_path do
+    .main-page__send-btn
+      .main-page__send-btn__name
+        出品
+      .main-page__send-btn__detail
+        %i.fa.fa-camera.fa
 =render partial: "items/header"
 .swiper-containers
   = image_tag "grand-canyon-1839279_1920.jpg",class:"swiper-containers__image"

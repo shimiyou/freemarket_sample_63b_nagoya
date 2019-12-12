@@ -28,8 +28,9 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: {maximum: 20}
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password, presence: true, length: {minimum: 7, maximum: 128}
-  validates :last_name,:first_name,:last_name_kana,:first_name_kana,:birthday, presence: true
-
+  validates :birthday, presence: true
+  validates :last_name_kana, :first_name_kana, presence: true, format: { with: /\A[ア-ン゛゜ァ-ォャ-ョー「」、]+\z/}
+  validates :last_name, :first_name, presence: true, format: { with: /\A[一-龥ぁ-ん]/}
   # phone_number入力項目
   validates :phone_number, presence: true,uniqueness: true,numericality: {only_integer: true}
 end
