@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
       var childSelectHtml = '';
       childSelectHtml = `
                         <div id='children_wrapper'>
-                          <select class='form-select-2 form-style' id= 'child_category', name="item[category_id]">
+                          <select class='form-select-2 form-style-new' id= 'child_category', name="item[category_id]">
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           </select>
@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function() {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `
                             <div id='grandchildren_wrapper'>
-                              <select class='form-select-2 form-style' id= 'grandchild_category', name="item[category_id]">
+                              <select class='form-select-2 form-style-new' id= 'grandchild_category', name="item[category_id]">
                                 <option value="---" data-category="---">---</option>
                                 ${insertHTML}
                               </select>
