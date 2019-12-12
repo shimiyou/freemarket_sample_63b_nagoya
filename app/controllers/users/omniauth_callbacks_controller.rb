@@ -11,10 +11,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # common callback method
   def callback_for(provider)
-    info = User.find_oauth(request.env["omniauth.auth"])
-    # snsの情報からuserが登録されているか　or snsから情報を取得できているかを確認
-    @user = User.where(nickname: info[:user][:nickname]).or(User.where(email: info[:user][:email])).first || info[:user]
-    
+    provider = provider.to_s
+    @user = User.find_oauth(request.env["omniauth.auth"])
     # persisted?はデータがDBに保存されているかを確認する/配列に対しては使えないから@userを定義するときは気をつける
     if @user.persisted?
       #保存されていればログインしてroot_pathにリダイレクトされる
@@ -22,18 +20,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
       # 登録するアクションに取得した値を渡すために。sessionを利用してuserインスタンスを作成する
-      session[:nickname] = info[:user][:nickname]
-      session[:email] = info[:user][:email]
+      session[:nickname] = @user.nickname
+      session[:email] = @user.email
+      session[:password] = @user.password
+      session[:provider] = @user.provider
+      session[:uid] = @user.uid
       #snsでのユーザ登録ではパスワードを入力させないので準備する。パスワードを作成するDeviseメソッドもある。
       #今回のバリデーションは英数字のみなのでこっちを採用
       session[:password_confirmation] = SecureRandom.alphanumeric(30)
 
-      #SnsCredentialが登録されていないとき
-      if SnsCredential.find_by(uid: info[:sns][:uid], provider: info[:sns][:provider]).nil?
-        #ユーザ登録と同時にsns_credentialも登録するために
-        session[:uid] = info[:sns][:uid]
-        session[:provider] = info[:sns][:provider]
-      end
       #登録フォームのviewにリダイレクトさせる
       redirect_to detail_signup_index_path
     end
