@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_one :address
   accepts_nested_attributes_for :address
   has_many :items
-  has_many :sns_credentials, dependent: :destroy
 
   #omniauth_callbacks_controllerで呼び出すメソッド
   def self.find_oauth(auth)
