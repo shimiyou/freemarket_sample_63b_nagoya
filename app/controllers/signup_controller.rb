@@ -21,54 +21,7 @@ class SignupController < ApplicationController
     else
       @user = User.new
     end
-  end
-
-  def detail_validates
-    # step2にデータを渡すためにsessionに入れる
-    create_session(user_params)
-    @user.valid?
-  end
-
-  def step2
-    @user = User.new
-  end
-
-  def creation
-    set_user_with_session
-    @user[:phonenumber] = user_params[:phonenumber]
-    if @user.save
-      SnsCredential.create(  #ユーザ登録と同時にこっちも登録
-        uid: session[:uid],
-        provider: session[:provider],
-        user_id: @user.id
-      )
-      sign_in User.find(@user.id) unless user_signed_in?
-      redirect_to addresses_path
-    else
-      render :step2
-    end
-  end
-
-  def done; end
-  
-
-
-  def set_user_with_session
-    @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password_confirmation],
-      password_confirmation: session[:password_confirmation],
-      lastname: session[:lastname],
-      firstname: session[:firstname],
-      lastname_kana: session[:lastname_kana],
-      firstname_kana: session[:firstname_kana],
-      birthday_year: session[:birthday_year],
-      birthday_month: session[:birthday_month],
-      birthday_day: session[:birthday_day]
-    )
-  end
-
+  end  
 
   
 
@@ -113,6 +66,8 @@ class SignupController < ApplicationController
   def fin
   end
 
+
+  private
 
   def user_params
     params.require(:user).permit(
